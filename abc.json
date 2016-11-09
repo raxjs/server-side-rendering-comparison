@@ -1,0 +1,21 @@
+{
+  "name": "rx-ssr",
+  "group": "tb",
+  "version": "@BRANCH@",
+  "type": "cake",
+  "builder": "@ali/builder-cake",
+  "author": "大果",
+  "options": {
+    "builderReflect": true,
+    "babel": true
+  },
+  "info": {
+    "extraLib": "rx",
+    "platform": ["mobile"],
+    "project": "app",
+    "workflow": "normal"
+  },
+  "build_ignore": [
+    "./build"
+  ]
+}

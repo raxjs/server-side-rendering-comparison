@@ -1,0 +1,31 @@
+{
+  "name": "@ali/rx-ssr",
+  "version": "0.0.1",
+  "description": "rx-ssr",
+  "main": "src/p/index/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["rx-mobile-normal-app"],
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.alibaba-inc.com:tb/rx-ssr.git"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+  },
+  "author": {
+    "name": "大果"
+  },
+  "maintainers": [
+    {
+      "name": "kpm_admin",
+      "email": "kpm_admin@taobao.com"
+    }
+  ],
+  "dependencies": {
+    "@ali/rx": "0.x.x",
+    "@ali/rx-components": "0.x.x",
+    "@ali/rx-mounter": "0.x.x"
+  }
+}
