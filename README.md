@@ -1,17 +1,24 @@
-# 项目 README 模板
 
-## 概要
+# Rx vs React In SSR
 
-- 本仓库负责的业务范围介绍。
-- 本仓库依赖的底层库及其版本。
-- 等等……
-## 目录结构介绍
+Dep React, Rx, Koa, Babel and so on.
 
-如果使用某个目录规范，则指出。如 cake.
+## Start
 
-否则自行列出各目录以及关键文件的作用。
+Start koa server
 
-## 参考资料
+```bash
+# http://127.0.0.1:3300/
+npm run react
 
-- 技术文档等
-- ATA 文章等
+# http://127.0.0.1:3000/
+npm run rx
+```
+
+## Build
+
+Build js code
+
+```bash
+npm run build
+```
