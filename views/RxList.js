@@ -38,19 +38,15 @@ var List = function (_Component) {
           null,
           'RxList'
         ),
-        (0, _rx.createElement)(
-          'div',
-          null,
-          list.map(function (item, idx) {
-            return (0, _rx.createElement)(
-              'p',
-              { key: idx, style: { display: 'inline' } },
-              idx,
-              ': ',
-              item.name
-            );
-          })
-        )
+        list.map(function (item, idx) {
+          return (0, _rx.createElement)(
+            'p',
+            { key: idx, style: { display: 'inline' } },
+            idx,
+            ': ',
+            item.name
+          );
+        })
       );
     }
   }]);

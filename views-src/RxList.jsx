@@ -10,13 +10,11 @@ export default class List extends Component {
     return (
       <div>
         <h2>RxList</h2>
-        <div>
         {
           list.map((item, idx) => {
             return <p key={idx} style={{display: 'inline'}}>{idx}: {item.name}</p>;
           })
         }
-        </div>
       </div>
     );
   }
