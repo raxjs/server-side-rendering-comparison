@@ -4,8 +4,7 @@
   "description": "rx-ssr",
   "main": "src/p/index/index.js",
   "scripts": {
-    "react": "nodemon react-app.js",
-    "rx": "nodemon rx-app.js",
+    "start": "npm run build && nodemon index.js",
     "build": "babel views-src -d views",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

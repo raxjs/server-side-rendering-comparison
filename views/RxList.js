@@ -16,20 +16,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var App = function (_Component) {
-  _inherits(App, _Component);
+var List = function (_Component) {
+  _inherits(List, _Component);
 
-  function App() {
-    _classCallCheck(this, App);
+  function List() {
+    _classCallCheck(this, List);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).apply(this, arguments));
   }
 
-  _createClass(App, [{
+  _createClass(List, [{
     key: 'render',
     value: function render() {
       var list = this.props.list;
-
 
       return (0, _rx.createElement)(
         'div',
@@ -39,20 +38,24 @@ var App = function (_Component) {
           null,
           'RxList'
         ),
-        list.map(function (item, idx) {
-          return (0, _rx.createElement)(
-            'p',
-            { key: idx, style: { display: 'inline' } },
-            idx,
-            ': ',
-            item.name
-          );
-        })
+        (0, _rx.createElement)(
+          'div',
+          null,
+          list.map(function (item, idx) {
+            return (0, _rx.createElement)(
+              'p',
+              { key: idx, style: { display: 'inline' } },
+              idx,
+              ': ',
+              item.name
+            );
+          })
+        )
       );
     }
   }]);
 
-  return App;
+  return List;
 }(_rx.Component);
 
-exports.default = App;
+exports.default = List;
