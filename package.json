@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run build && nodemon index.js",
     "build": "babel views-src -d views",
+    "benchmark": "node benchmark",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

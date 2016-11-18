@@ -17,8 +17,8 @@ const runFork = (script, limit) => {
   });
 }
 
-runFork('./rx.js')
-  .then(() => runFork('./react.js'))
+runFork(__dirname + '/rx.js')
+  .then(() => runFork(__dirname + '/react.js'))
   .catch((err) => {
     console.log('Got Err:', err.stack);
   });
