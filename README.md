@@ -22,3 +22,10 @@ Build js code
 ```bash
 npm run build
 ```
+
+## Notes
+
+- Rx stateless
+- Rx style 100px 不能用 100
+- window.Rx.version 有问题
+- Rx 在 renderToString 时会执行到 componentDidMount 的生命周期

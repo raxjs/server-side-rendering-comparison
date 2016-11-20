@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Page</title>
+
+  <script>
+    window.GLOBAL = JSON.parse('{{{global}}}');
+  </script>
+</head>
+<body>
+  
+  <div id="container">{{{ content }}}</div>
+
+  <script src="//g.alicdn.com/third/react/15.1.0/??react-with-addons.js,react-dom.js"></script>
+  <script src="./index.react.bundle.js"></script>
+</body>
+</html>
