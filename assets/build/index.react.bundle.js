@@ -60,7 +60,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(_app2.default, window.GLOBAL), document.getElementById('container'));
+	_reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.getElementById('container'));
 
 /***/ },
 /* 1 */
@@ -118,7 +118,7 @@
 	  _createClass(App, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log('render in client');
+	      console.log('react render in client');
 	    }
 	  }, {
 	    key: 'render',

@@ -111,7 +111,7 @@
 	  _createClass(App, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log('render in client');
+	      console.log('rx render in client');
 	    }
 	  }, {
 	    key: 'render',

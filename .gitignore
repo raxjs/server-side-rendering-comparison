@@ -10,5 +10,6 @@ zip/
 tmp/
 temp/
 coverage/
+npm-debug.log*
 
 .happypack

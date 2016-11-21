@@ -9,6 +9,7 @@ module.exports = {
   entry: {
     'index.react': './assets/src/index.react.js',
     'index.rx': './assets/src/index.rx.js',
+    'index.vue': './assets/src/index.vue'
   },
   output: {
     filename: './assets/build/[name].bundle.js'
@@ -17,11 +18,15 @@ module.exports = {
     loaders:[
       {
         test: /\.js[x]?$/,
-        exclude: /node_modules|work\/rx\/rx\/lib/,
+        exclude: /node_modules/,
         loader: 'babel',
         query: {
           presets: ['es2015', 'react', 'stage-0']
         }
+      },
+      {
+        test: /\.vue?$/,
+        loader: 'vue'
       }
     ]
   },

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>React Page</title>
+  <title>{{type}} Page</title>
 
   <script>
     window.GLOBAL = JSON.parse('{{{global}}}');
@@ -12,7 +12,14 @@
   
   <div id="container">{{{ content }}}</div>
 
+  {{#if(type === 'react')}}
   <script src="//g.alicdn.com/third/react/15.1.0/??react-with-addons.js,react-dom.js"></script>
-  <script src="./index.react.bundle.js"></script>
+  {{elseif (type === 'rx')}}
+  <script src="//unpkg.com/universal-rx@0.0.7/dist/rx.min.js"></script>
+  {{elseif (type === 'vue')}}
+  
+  {{/if}}
+  
+  <script src="./index.{{type}}.bundle.js"></script>
 </body>
 </html>
