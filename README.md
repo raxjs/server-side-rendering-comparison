@@ -92,12 +92,6 @@ npm run benchmark
 
 ## Build
 
-Babel transfer src(es6) to dest(es5) for server render.
-
-```bash
-npm run babel
-```
-
 Webpack build js for client render.
 
 ```bash
