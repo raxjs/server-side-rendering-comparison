@@ -44,33 +44,38 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/** @jsx createElement */
-
 	'use strict';
 
-	var _universalRx = __webpack_require__(6);
+	var _react = __webpack_require__(1);
 
-	var _app = __webpack_require__(7);
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(2);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _app = __webpack_require__(3);
 
 	var _app2 = _interopRequireDefault(_app);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	(0, _universalRx.render)((0, _universalRx.createElement)(_app2.default, window.GLOBAL), document.getElementById('container'));
+	_reactDom2.default.render(_react2.default.createElement(_app2.default, window.GLOBAL), document.getElementById('container'));
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */
+/* 1 */
 /***/ function(module, exports) {
 
-	module.exports = window.Rx;
+	module.exports = window.React;
 
 /***/ },
-/* 7 */
+/* 2 */
+/***/ function(module, exports) {
+
+	module.exports = window.ReactDOM;
+
+/***/ },
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -81,13 +86,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _universalRx = __webpack_require__(6);
+	var _react = __webpack_require__(1);
 
-	var _index = __webpack_require__(8);
+	var _react2 = _interopRequireDefault(_react);
+
+	var _index = __webpack_require__(4);
 
 	var _index2 = _interopRequireDefault(_index);
 
-	var _index3 = __webpack_require__(9);
+	var _index3 = __webpack_require__(5);
 
 	var _index4 = _interopRequireDefault(_index3);
 
@@ -97,10 +104,10 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /** @jsx createElement */
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var App = function (_Component) {
-	  _inherits(App, _Component);
+	var App = function (_React$Component) {
+	  _inherits(App, _React$Component);
 
 	  function App() {
 	    _classCallCheck(this, App);
@@ -111,7 +118,7 @@
 	  _createClass(App, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log('rx render in client');
+	      // console.log('react render in client');
 	    }
 	  }, {
 	    key: 'render',
@@ -119,37 +126,24 @@
 
 	      var props = this.props || {};
 
-	      return (0, _universalRx.createElement)(
+	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        (0, _universalRx.createElement)(_index4.default, { data: props.bannerData }),
-	        (0, _universalRx.createElement)(_index2.default, { data: props.listData })
+	        _react2.default.createElement(_index4.default, { data: props.bannerData }),
+	        _react2.default.createElement(_index2.default, { data: props.listData })
 	      );
 	    }
 	  }]);
 
 	  return App;
-	}(_universalRx.Component);
+	}(_react2.default.Component);
 
 	exports.default = App;
 	;
 
-	// export default function(props = {}) {
-
-	//   return (
-	//     <div>
-	//       <Banner data={props.bannerData} />
-	//       <List data={props.listData} />
-	//     </div>
-	//   );
-
-	// };
-
 /***/ },
-/* 8 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
-
-	/** @jsx createElement */
 
 	'use strict';
 
@@ -159,7 +153,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _universalRx = __webpack_require__(6);
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -194,39 +192,39 @@
 
 	    // componentDidMount() {
 	    //   this.setState({
-	    //     data: window && window.GLOBAL.listData
+	    //     list: window && window.GLOBAL.listData
 	    //   });
 	    // }
 
 	    value: function render() {
 	      var data = this.state.data;
 
-	      return (0, _universalRx.createElement)(
+	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        (0, _universalRx.createElement)(
+	        _react2.default.createElement(
 	          'h2',
 	          null,
-	          'RxList'
+	          'ReactList'
 	        ),
 	        data.map(function (item, idx) {
-	          return (0, _universalRx.createElement)(
+	          return _react2.default.createElement(
 	            'div',
 	            { key: idx, style: {
 	                float: 'left',
-	                width: '200px',
-	                marginRight: '10px',
-	                marginBottom: '10px'
+	                width: 200,
+	                marginRight: 10,
+	                marginBottom: 10
 	              } },
-	            (0, _universalRx.createElement)('img', { src: item.img, style: {
+	            _react2.default.createElement('img', { src: item.img, style: {
 	                width: '100%'
 	              } }),
-	            (0, _universalRx.createElement)(
+	            _react2.default.createElement(
 	              'p',
 	              null,
 	              item.title
 	            ),
-	            (0, _universalRx.createElement)('div', null)
+	            _react2.default.createElement('div', null)
 	          );
 	        })
 	      );
@@ -234,15 +232,13 @@
 	  }]);
 
 	  return List;
-	}(_universalRx.Component);
+	}(_react.Component);
 
 	exports.default = List;
 
 /***/ },
-/* 9 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
-
-	/** @jsx createElement */
 
 	'use strict';
 
@@ -256,7 +252,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _universalRx = __webpack_require__(6);
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -266,8 +266,8 @@
 
 	// import bannerData from '../../../../mock/banner';
 
-	var Banner = function (_Component) {
-	  _inherits(Banner, _Component);
+	var Banner = function (_React$Component) {
+	  _inherits(Banner, _React$Component);
 
 	  function Banner() {
 	    var _ref;
@@ -288,7 +288,6 @@
 	  }
 
 	  // componentDidMount() {
-	  //   // 异步获取数据
 	  //   this.setState({
 	  //     data: window && window.GLOBAL.bannerData
 	  //   });
@@ -304,27 +303,27 @@
 
 	      var itemStyle = {
 	        display: 'inline-block',
-	        width: '200px',
-	        marginLeft: '200px'
+	        width: 200,
+	        marginLeft: 200
 	      };
 
 	      var imgStyle = {
 	        width: '100%'
 	      };
 
-	      return (0, _universalRx.createElement)(
+	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        (0, _universalRx.createElement)(
+	        _react2.default.createElement(
 	          'h2',
 	          null,
-	          'Rx Banner: '
+	          'React Banner: '
 	        ),
 	        data.map(function (item, idx) {
-	          return (0, _universalRx.createElement)(
+	          return _react2.default.createElement(
 	            'div',
-	            { style: itemStyle, onClick: _this2.onBannerClick.bind(_this2, item) },
-	            (0, _universalRx.createElement)('img', { src: item.img, style: imgStyle })
+	            { key: idx, style: itemStyle, onClick: _this2.onBannerClick.bind(_this2, item) },
+	            _react2.default.createElement('img', { src: item.img, style: imgStyle })
 	          );
 	        })
 	      );
@@ -332,7 +331,7 @@
 	  }]);
 
 	  return Banner;
-	}(_universalRx.Component);
+	}(_react2.default.Component);
 
 	exports.default = Banner;
 

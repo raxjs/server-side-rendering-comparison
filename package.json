@@ -5,8 +5,8 @@
   "main": "src/p/index/index.js",
   "scripts": {
     "start": "nodemon app.js",
-    "babel": "babel assets/src -d assets/dest",
-    "build": "webpack --progess && npm run babel",
+    "webpack": "webpack --config webpack.client.config.js && webpack --config webpack.server.config.js",
+    "build": "npm run webpack && npm run babel",
     "benchmark": "bash ./benchmarks/index.sh"
   },
   "keywords": [
@@ -35,12 +35,15 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "universal-rx": "0.0.7",
+    "vue": "^2.0.8",
+    "vue-server-renderer": "^2.0.8",
     "xtemplate": "^4.6.0",
     "xtpl": "^3.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-loader": "^6.2.8",
+    "babel-plugin-transform-vue-jsx": "^3.2.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
