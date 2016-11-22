@@ -1,5 +1,6 @@
 #!/bin/sh
 
+export VUE_ENV=server
 cd benchmarks/
 
 echo '-----------compare renderToString----------'

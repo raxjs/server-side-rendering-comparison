@@ -3,7 +3,7 @@
 const Rx = require('universal-rx');
 const rxRenderToString = require('universal-rx/lib/server/renderToString').default;
 
-const RxApp = require('../assets/dest/app.rx').default;
+const RxApp = require('../assets/build/server.rx.bundle').default;
 
 const appProps = {
   listData: require('../mock/list'),
