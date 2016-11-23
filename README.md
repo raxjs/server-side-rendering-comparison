@@ -1,74 +1,21 @@
 
 # Rx SSR Preformance Test
 
-## Result
+## server-side rendering benchmarks
 
-```bash
------------compare renderToString----------
+| ma\engine    |renderToSring   |QPS [#/sec]|
+|--------------|----------------|-----------|
+| React        | 337.2ms        |  180.65   |
+| Rx           | 64.4ms          |  307.38   |
+| Vue          | 91.6ms          |  287.77   |
 
-rx: 59.321ms  react: 386.257ms
-rx: 60.193ms  react: 304.344ms
-rx: 58.265ms  react: 299.944ms
-rx: 63.940ms  react: 500.532ms
-rx: 70.413ms  react: 573.114ms
-rx: 63.822ms  react: 419.672ms
-rx: 76.518ms  react: 318.025ms
-rx: 72.692ms  react: 301.349ms
-rx: 107.475ms react: 281.610ms
-rx: 77.521ms  react: 280.349ms
-
------------compare qps------------
-
-# React
-Benchmarking 127.0.0.1 (be patient)
-...
-Finished 1000 requests
-
-Server Hostname:        127.0.0.1
-Server Port:            3300
-
-Document Path:          /rx
-Document Length:        3253 bytes
-
-Concurrency Level:      50
-Time taken for tests:   2.979 seconds
-Complete requests:      1000
-Failed requests:        0
-Total transferred:      3390000 bytes
-HTML transferred:       3253000 bytes
-Requests per second:    335.72 [#/sec] (mean)
-Time per request:       148.935 [ms] (mean)
-Time per request:       2.979 [ms] (mean, across all concurrent requests)
-Transfer rate:          1111.41 [Kbytes/sec] received
-
-...
-
-# Rx
-Benchmarking 127.0.0.1 (be patient)
-...
-Finished 1000 requests
-
-Server Hostname:        127.0.0.1
-Server Port:            3300
-
-Document Path:          /react
-Document Length:        3961 bytes
-
-Concurrency Level:      50
-Time taken for tests:   4.173 seconds
-Complete requests:      1000
-Failed requests:        0
-Total transferred:      4098000 bytes
-HTML transferred:       3961000 bytes
-Requests per second:    239.63 [#/sec] (mean)
-Time per request:       208.656 [ms] (mean)
-Time per request:       4.173 [ms] (mean, across all concurrent requests)
-Transfer rate:          958.98 [Kbytes/sec] received
-
-...
-
------------compare end------------
 ```
+MacBook Air Intel Core i5 @1.4 GHz x 2 with 8 GB memory
+Node.js v4.3.2
+```
+
+- renderToSring: Independent process serial execution 10 times, each process parallel rendering 100 times, without cache.
+- qps: `ab -n1000 -c50 http://127.0.0.1:3300/react|rx|vue`, without cache
 
 ## Start
 
