@@ -39,17 +39,8 @@ npm run benchmark
 
 ## Build
 
-Webpack build js for client render.
+build assets by webpack:
 
 ```bash
 npm run build
 ```
-
-## Notes
-
-- How stateless Component code in Rx?
-- Rx don't support 100 to 100px?
-- window.Rx.version is wrong!
-- Rx call all lifecycle hook in ssr, but React only componentWillMount
-- Rx client render can't distinguish the server render content and will repeat
-- What's the better way to fetch data for ssr?
