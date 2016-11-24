@@ -1,5 +1,4 @@
-
-# Rx SSR Preformance Test
+# Server-side Rendering Comparison
 
 ## Server-side rendering benchmarks
 
