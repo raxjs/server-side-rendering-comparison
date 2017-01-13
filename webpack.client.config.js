@@ -6,7 +6,7 @@ module.exports = {
 
   entry: {
     'client.react': './assets/src/client.react.js',
-    'client.rx': './assets/src/client.rx.js',
+    'client.rax': './assets/src/client.rax.js',
     'client.vue': './assets/src/client.vue.js'
   },
   output: {
@@ -15,7 +15,7 @@ module.exports = {
   module: {
     loaders:[
       {
-        test: /(rx|react)\.js[x]?$/,
+        test: /(rax|react)\.js[x]?$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
@@ -38,7 +38,7 @@ module.exports = {
   externals: {
     'react': 'window.React',
     'react-dom': 'window.ReactDOM',
-    'universal-rx': 'window.Rx',
+    'rax': 'window.Rax',
     'vue': 'window.Vue'
   }
 };

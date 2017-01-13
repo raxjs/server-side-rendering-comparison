@@ -48,29 +48,24 @@
 
 	'use strict';
 
-	var _universalRx = __webpack_require__(6);
+	var _rax = __webpack_require__(1);
 
-	var _app = __webpack_require__(7);
+	var _app = __webpack_require__(2);
 
 	var _app2 = _interopRequireDefault(_app);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	(0, _universalRx.render)((0, _universalRx.createElement)(_app2.default, window.GLOBAL), document.getElementById('container'));
+	(0, _rax.render)((0, _rax.createElement)(_app2.default, window.GLOBAL), document.getElementById('container'));
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */
+/* 1 */
 /***/ function(module, exports) {
 
-	module.exports = window.Rx;
+	module.exports = window.Rax;
 
 /***/ },
-/* 7 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -81,13 +76,13 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _universalRx = __webpack_require__(6);
+	var _rax = __webpack_require__(1);
 
-	var _index = __webpack_require__(8);
+	var _index = __webpack_require__(3);
 
 	var _index2 = _interopRequireDefault(_index);
 
-	var _index3 = __webpack_require__(9);
+	var _index3 = __webpack_require__(4);
 
 	var _index4 = _interopRequireDefault(_index3);
 
@@ -119,17 +114,17 @@
 
 	      var props = this.props || {};
 
-	      return (0, _universalRx.createElement)(
+	      return (0, _rax.createElement)(
 	        'div',
 	        null,
-	        (0, _universalRx.createElement)(_index4.default, { data: props.bannerData }),
-	        (0, _universalRx.createElement)(_index2.default, { data: props.listData })
+	        (0, _rax.createElement)(_index4.default, { data: props.bannerData }),
+	        (0, _rax.createElement)(_index2.default, { data: props.listData })
 	      );
 	    }
 	  }]);
 
 	  return App;
-	}(_universalRx.Component);
+	}(_rax.Component);
 
 	exports.default = App;
 	;
@@ -146,7 +141,7 @@
 	// };
 
 /***/ },
-/* 8 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx createElement */
@@ -159,7 +154,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _universalRx = __webpack_require__(6);
+	var _rax = __webpack_require__(1);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -201,16 +196,16 @@
 	    value: function render() {
 	      var data = this.state.data;
 
-	      return (0, _universalRx.createElement)(
+	      return (0, _rax.createElement)(
 	        'div',
 	        null,
-	        (0, _universalRx.createElement)(
+	        (0, _rax.createElement)(
 	          'h2',
 	          null,
 	          'RxList'
 	        ),
 	        data.map(function (item, idx) {
-	          return (0, _universalRx.createElement)(
+	          return (0, _rax.createElement)(
 	            'div',
 	            { key: idx, style: {
 	                float: 'left',
@@ -218,15 +213,15 @@
 	                marginRight: '10px',
 	                marginBottom: '10px'
 	              } },
-	            (0, _universalRx.createElement)('img', { src: item.img, style: {
+	            (0, _rax.createElement)('img', { src: item.img, style: {
 	                width: '100%'
 	              } }),
-	            (0, _universalRx.createElement)(
+	            (0, _rax.createElement)(
 	              'p',
 	              null,
 	              item.title
 	            ),
-	            (0, _universalRx.createElement)('div', null)
+	            (0, _rax.createElement)('div', null)
 	          );
 	        })
 	      );
@@ -234,12 +229,12 @@
 	  }]);
 
 	  return List;
-	}(_universalRx.Component);
+	}(_rax.Component);
 
 	exports.default = List;
 
 /***/ },
-/* 9 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx createElement */
@@ -256,7 +251,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _universalRx = __webpack_require__(6);
+	var _rax = __webpack_require__(1);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -312,19 +307,19 @@
 	        width: '100%'
 	      };
 
-	      return (0, _universalRx.createElement)(
+	      return (0, _rax.createElement)(
 	        'div',
 	        null,
-	        (0, _universalRx.createElement)(
+	        (0, _rax.createElement)(
 	          'h2',
 	          null,
 	          'Rx Banner: '
 	        ),
 	        data.map(function (item, idx) {
-	          return (0, _universalRx.createElement)(
+	          return (0, _rax.createElement)(
 	            'div',
 	            { style: itemStyle, onClick: _this2.onBannerClick.bind(_this2, item) },
-	            (0, _universalRx.createElement)('img', { src: item.img, style: imgStyle })
+	            (0, _rax.createElement)('img', { src: item.img, style: imgStyle })
 	          );
 	        })
 	      );
@@ -332,7 +327,7 @@
 	  }]);
 
 	  return Banner;
-	}(_universalRx.Component);
+	}(_rax.Component);
 
 	exports.default = Banner;
 

@@ -2,7 +2,7 @@
 
 'use strict';
 
-import { createElement, Component } from 'universal-rx';
+import { createElement, Component } from 'rax';
 // import listData from '../../../../mock/list';
 
 export default class List extends Component {
@@ -21,7 +21,7 @@ export default class List extends Component {
     const { data } = this.state;
     return (
       <div>
-        <h2>RxList</h2>
+        <h2>RaxList</h2>
         {
           data.map((item, idx) => {
             return (

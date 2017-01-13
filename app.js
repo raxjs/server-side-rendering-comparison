@@ -9,8 +9,8 @@ const router = require('koa-router')();
 
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
-const Rx = require('universal-rx');
-const rxRenderToString = require('universal-rx/lib/server/renderToString').default;
+const Rax = require('rax');
+const raxRenderToString = require('rax-server-renderer').renderToString;
 const Vue = require('vue');
 const vueRenderToString = require('vue-server-renderer').createRenderer().renderToString;
 
@@ -36,17 +36,17 @@ router.get('/react', function *() {
   });
 });
 
-router.get('/rx', function *() {
+router.get('/rax', function *() {
 
-  const RxApp = require('./assets/build/server.rx.bundle').default;
+  const RaxApp = require('./assets/build/server.rax.bundle').default;
   const pageConfig = {
     listData: require('./mock/list'),
     bannerData: require('./mock/banner')
   };
 
   yield this.render('page', {
-    type: 'rx',
-    content: rxRenderToString(Rx.createElement(RxApp, pageConfig)),
+    type: 'rax',
+    content: raxRenderToString(Rax.createElement(RaxApp, pageConfig)),
     global: JSON.stringify(pageConfig)
   });
 

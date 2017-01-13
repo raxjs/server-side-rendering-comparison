@@ -1,20 +1,20 @@
 {
-  "name": "@ali/rx-ssr",
+  "name": "@ali/rax-ssr",
   "version": "0.0.1",
-  "description": "rx-ssr",
+  "description": "rax-ssr",
   "main": "src/p/index/index.js",
   "scripts": {
     "start": "nodemon app.js",
     "webpack": "webpack --config webpack.client.config.js && webpack --config webpack.server.config.js",
-    "build": "npm run webpack && npm run babel",
+    "build": "npm run webpack",
     "benchmark": "bash ./benchmarks/index.sh"
   },
   "keywords": [
-    "rx-mobile-normal-app"
+    "rax-mobile-normal-app"
   ],
   "repository": {
     "type": "git",
-    "url": "git@gitlab.alibaba-inc.com:tb/rx-ssr.git"
+    "url": "https://github.com/taobaofed/server-side-rendering-comparison"
   },
   "publishConfig": {
     "registry": "http://registry.npm.alibaba-inc.com"
@@ -32,9 +32,10 @@
     "koa": "^1.2.4",
     "koa-router": "^5.4.0",
     "koa-static": "^2.0.0",
+    "rax": "^0.1.2",
+    "rax-server-renderer": "^0.1.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "universal-rx": "0.0.7",
     "vue": "^2.1.8",
     "vue-server-renderer": "^2.1.8",
     "xtemplate": "^4.6.0",

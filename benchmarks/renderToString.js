@@ -9,7 +9,7 @@ const cp = require('child_process');
 const limit = 10;
 
 // 对同一组件并行渲染十次，然后串行在十个独立的子进程里执行
-runRenderTask(__dirname + '/rxRenderToString.js', limit)
+runRenderTask(__dirname + '/raxRenderToString.js', limit)
   .then(() => runRenderTask(__dirname + '/reactRenderToString.js', limit))
   .then(() => runRenderTask(__dirname + '/vueRenderToString.js', limit))
   .catch((err) => {
