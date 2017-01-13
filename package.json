@@ -49,8 +49,6 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "nodemon": "^1.11.0",
-    "vue-loader": "^10.0.0",
-    "vue-template-compiler": "^2.1.8",
     "webpack": "^1.13.3"
   }
 }
