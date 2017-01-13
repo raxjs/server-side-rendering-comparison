@@ -1,5 +1,7 @@
 'use strict';
 
+process.env.NODE_ENV = 'production';
+
 const fs = require('fs');
 const koa = require('koa');
 const serve = require('koa-static');
@@ -68,7 +70,7 @@ router.get('/vue', function *() {
       });
     }
   });
- 
+
   const content = yield new Promise((resolve, reject) => {
     vueRenderToString(vm, (err, html) => {
       if(err) {

@@ -18,7 +18,7 @@
   {{elseif (type === 'rx')}}
   <script src="//unpkg.com/universal-rx@0.0.7/dist/rx.min.js"></script>
   {{elseif (type === 'vue')}}
-  <script src="//unpkg.com/vue@2.0.8/dist/vue.min.js"></script>
+  <script src="//unpkg.com/vue@2.1.8/dist/vue.min.js"></script>
   {{/if}}
   
   <script src="./client.{{type}}.bundle.js"></script>
