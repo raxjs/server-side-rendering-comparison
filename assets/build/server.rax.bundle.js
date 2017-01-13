@@ -3371,7 +3371,7 @@ module.exports =
 	        (0, _rax.createElement)(
 	          'h2',
 	          null,
-	          'RxList'
+	          'RaxList'
 	        ),
 	        data.map(function (item, idx) {
 	          return (0, _rax.createElement)(
@@ -3482,7 +3482,7 @@ module.exports =
 	        (0, _rax.createElement)(
 	          'h2',
 	          null,
-	          'Rx Banner: '
+	          'Rax Banner: '
 	        ),
 	        data.map(function (item, idx) {
 	          return (0, _rax.createElement)(
