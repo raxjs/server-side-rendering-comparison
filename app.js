@@ -23,7 +23,7 @@ router.get('/rax', raxRoute.default);
 // not understand.
 router.get('/vue', function *() {
 
-  const VueApp = require('./assets/build/server.vue.bundle').default;
+  const VueApp = require('./assets/build/app.vue.bundle').default;
   const pageConfig = {
     listData: require('./mock/list'),
     bannerData: require('./mock/banner')
