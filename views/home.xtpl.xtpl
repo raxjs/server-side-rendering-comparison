@@ -1,6 +1,0 @@
-<div>
-  <h2>xtpl</h2>
-  {{#each(list)}}
-    <p style="display: inline;">{{xindex}}: {{this.name}}</p>;
-  {{/each}}
-</div>
