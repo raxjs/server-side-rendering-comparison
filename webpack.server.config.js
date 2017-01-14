@@ -5,9 +5,17 @@ var webpack = require('webpack');
 module.exports = {
   target: 'node',
   entry: {
-    'server.react': './assets/src/server.react.js',
-    'server.rax': './assets/src/server.rax.js',
-    'server.vue': './assets/src/server.vue.js'
+    'app.react': './assets/src/server.react.js',
+    'app.rax': './assets/src/server.rax.js',
+    'app.vue': './assets/src/server.vue.js',
+    'renderToString.react': './benchmarks/reactRenderToString.js',
+    'renderToString.rax': './benchmarks/raxRenderToString.js',
+    'route.react': './routes/route.react.js',
+    'route.rax': './routes/route.rax.js',
+    // we can't webpack vue because the renderer code for vue uses require in
+    // an unusual way.
+    // 'vueToString.react': './benchmarks/vueRenderToString.js',
+    // 'route.vue': './routes/vueRoute.js',
   },
   output: {
     filename: './assets/build/[name].bundle.js',
@@ -20,6 +28,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel',
         query: {
+          'plugins': ['transform-runtime'],
           'presets': ['es2015', 'react', 'stage-0']
         }
       },
@@ -35,5 +44,12 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': '"production"'
+      }
+    }),
+  ],
 };

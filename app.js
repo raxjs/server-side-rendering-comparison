@@ -1,16 +1,12 @@
 'use strict';
 
-process.env.NODE_ENV = 'production';
-
 const fs = require('fs');
 const koa = require('koa');
 const serve = require('koa-static');
 const router = require('koa-router')();
 
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
-const Rax = require('rax');
-const raxRenderToString = require('rax-server-renderer').renderToString;
+const reactRoute = require('./assets/build/route.react.bundle');
+const raxRoute = require('./assets/build/route.rax.bundle');
 const Vue = require('vue');
 const vueRenderToString = require('vue-server-renderer').createRenderer().renderToString;
 
@@ -18,40 +14,13 @@ const app = require('xtpl/lib/koa')(require('koa')(), {
   views:'./views'
 });
 
-router.get('/react', function *() {
+router.get('/react', reactRoute.default);
 
-  const ReactApp = require('./assets/build/server.react.bundle').default;
+router.get('/rax', raxRoute.default);
 
-  const pageConfig = {
-    listData: require('./mock/list'),
-    bannerData: require('./mock/banner')
-  };
-
-  yield this.render('page', {
-    type: 'react',
-    content: ReactDOMServer.renderToString(
-                React.createElement(ReactApp, pageConfig)
-              ),
-    global: JSON.stringify(pageConfig)
-  });
-});
-
-router.get('/rax', function *() {
-
-  const RaxApp = require('./assets/build/server.rax.bundle').default;
-  const pageConfig = {
-    listData: require('./mock/list'),
-    bannerData: require('./mock/banner')
-  };
-
-  yield this.render('page', {
-    type: 'rax',
-    content: raxRenderToString(Rax.createElement(RaxApp, pageConfig)),
-    global: JSON.stringify(pageConfig)
-  });
-
-});
-
+// note that we don't compile the vue route because the vue renderer is not
+// compatible with webpack; it uses require in an unusual way that webpack does
+// not understand.
 router.get('/vue', function *() {
 
   const VueApp = require('./assets/build/server.vue.bundle').default;

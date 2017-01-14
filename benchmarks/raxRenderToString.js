@@ -3,7 +3,7 @@
 const Rax = require('rax');
 const raxRenderToString = require('rax-server-renderer').renderToString;
 
-const RxApp = require('../assets/build/server.rax.bundle').default;
+const RxApp = require('../assets/src/app.rax').default;
 
 const appProps = {
   listData: require('../mock/list'),

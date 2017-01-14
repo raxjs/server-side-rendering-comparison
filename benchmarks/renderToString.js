@@ -1,5 +1,5 @@
 'use strict';
-
+const path = require('path');
 /**
  * compare renderToString
  */
@@ -9,9 +9,9 @@ const cp = require('child_process');
 const limit = 10;
 
 // Independent process serial execution 10 times, each process parallel rendering 100 times
-runRenderTask(__dirname + '/raxRenderToString.js', limit)
-  .then(() => runRenderTask(__dirname + '/reactRenderToString.js', limit))
-  .then(() => runRenderTask(__dirname + '/vueRenderToString.js', limit))
+runRenderTask(path.join(__dirname, '..', 'assets', 'build', 'renderToString.rax.bundle.js'), limit)
+  .then(() => runRenderTask(path.join(__dirname, '..', 'assets', 'build', 'renderToString.react.bundle.js'), limit))
+  .then(() => runRenderTask(path.join(__dirname, 'vueRenderToString.js'), limit))
   .catch((err) => {
     console.log('Got Err:', err.stack);
   });

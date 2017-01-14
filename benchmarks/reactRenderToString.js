@@ -3,7 +3,7 @@
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 
-const ReactApp = require('../assets/build/server.react.bundle').default;
+const ReactApp = require('../assets/src/app.react').default;
 
 const appProps = {
   listData: require('../mock/list'),
