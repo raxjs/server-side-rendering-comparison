@@ -8,7 +8,7 @@ const cp = require('child_process');
 
 const limit = 10;
 
-// Render a component ten times parallel, and run it in independent child processes.
+// Independent process serial execution 10 times, each process parallel rendering 100 times
 runRenderTask(__dirname + '/raxRenderToString.js', limit)
   .then(() => runRenderTask(__dirname + '/reactRenderToString.js', limit))
   .then(() => runRenderTask(__dirname + '/vueRenderToString.js', limit))
