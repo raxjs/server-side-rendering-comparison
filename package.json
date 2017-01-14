@@ -11,7 +11,8 @@
     "benchmark": "bash ./benchmarks/index.sh"
   },
   "keywords": [
-    "rax-mobile-normal-app"
+    "ssr",
+    "rax"
   ],
   "repository": {
     "type": "git",
@@ -21,14 +22,8 @@
     "registry": "http://registry.npm.alibaba-inc.com"
   },
   "author": {
-    "name": "大果"
+    "name": "imsobear"
   },
-  "maintainers": [
-    {
-      "name": "kpm_admin",
-      "email": "kpm_admin@taobao.com"
-    }
-  ],
   "dependencies": {
     "koa": "^1.2.4",
     "koa-router": "^5.4.0",
