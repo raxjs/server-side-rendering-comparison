@@ -1,12 +1,13 @@
 {
-  "name": "@ali/rax-ssr",
-  "version": "0.0.1",
+  "name": "server-side-rendering-comparison",
+  "version": "0.1.0",
   "description": "rax-ssr",
-  "main": "src/p/index/index.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "webpack": "webpack --config webpack.client.config.js && webpack --config webpack.server.config.js",
-    "build": "npm run webpack",
+    "webpack:client": "webpack --config webpack.client.config.js",
+    "webpack:server": "webpack --config webpack.server.config.js",
+    "webpack": "npm run webpack:client && npm run webpack:server",
     "benchmark": "bash ./benchmarks/index.sh"
   },
   "keywords": [

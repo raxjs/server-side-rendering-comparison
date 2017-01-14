@@ -18,10 +18,16 @@ Node.js v7.4.0
 
 ## Start
 
-install dep
+install deps
 
 ```bash
 npm i
+```
+
+build assets
+
+```bash
+npm run webpack
 ```
 
 start koa server
@@ -36,10 +42,9 @@ run benchmark
 npm run benchmark
 ```
 
-## Build
-
-build assets by webpack:
+## dev
 
 ```bash
-npm run build
+npm run webpack:client -- --watch
+npm run webpack:server -- --watch
 ```

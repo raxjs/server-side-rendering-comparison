@@ -11,5 +11,6 @@ tmp/
 temp/
 coverage/
 npm-debug.log*
+assets/build
 
 .happypack
