@@ -2,8 +2,8 @@
 
 'use strict';
 
-import { createElement, Component, render } from 'universal-rx';
+import { createElement, Component, render } from 'rax';
 
-import App from './app.rx';
+import App from './app.rax';
 
 render(<App {...window.GLOBAL} />, document.getElementById('container'));

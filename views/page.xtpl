@@ -15,10 +15,10 @@
   {{#if(type === 'react')}}
   <script src="//unpkg.com/react@15.4.0/dist/react.min.js"></script>
   <script src="//unpkg.com/react-dom@15.4.0/dist/react-dom.min.js"></script>
-  {{elseif (type === 'rx')}}
-  <script src="//unpkg.com/universal-rx@0.0.7/dist/rx.min.js"></script>
+  {{elseif (type === 'rax')}}
+  <script src="//unpkg.com/rax@0.1.2/dist/rax.min.js"></script>
   {{elseif (type === 'vue')}}
-  <script src="//unpkg.com/vue@2.0.8/dist/vue.min.js"></script>
+  <script src="//unpkg.com/vue@2.1.8/dist/vue.min.js"></script>
   {{/if}}
   
   <script src="./client.{{type}}.bundle.js"></script>

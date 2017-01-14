@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export VUE_ENV=server
+export NODE_ENV=production
 cd benchmarks/
 
 echo '-----------compare renderToString----------'

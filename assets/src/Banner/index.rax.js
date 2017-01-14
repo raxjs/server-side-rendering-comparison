@@ -6,7 +6,7 @@
  * Banner: 支持缓存
  */
 
-import { createElement, Component } from 'universal-rx';
+import { createElement, Component } from 'rax';
 // import bannerData from '../../../../mock/banner';
 
 export default class Banner extends Component {
@@ -42,7 +42,7 @@ export default class Banner extends Component {
 
     return (
       <div>
-        <h2>Rx Banner: </h2>
+        <h2>Rax Banner: </h2>
         {
           data.map((item, idx) => {
             return (

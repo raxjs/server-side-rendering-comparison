@@ -6,7 +6,7 @@ module.exports = {
   target: 'node',
   entry: {
     'server.react': './assets/src/server.react.js',
-    'server.rx': './assets/src/server.rx.js',
+    'server.rax': './assets/src/server.rax.js',
     'server.vue': './assets/src/server.vue.js'
   },
   output: {
@@ -16,7 +16,7 @@ module.exports = {
   module: {
     loaders:[
       {
-        test: /(rx|react)\.js[x]?$/,
+        test: /(rax|react)\.js[x]?$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
@@ -35,17 +35,5 @@ module.exports = {
         }
       }
     ]
-  },
-  // externals: {
-  //   'react': 'window.React',
-  //   'react-dom': 'window.ReactDOM',
-  //   'universal-rx': 'window.Rx',
-  //   'vue': 'window.Vue'
-  // },
-  // target: 'node',
-  // node: {
-  //   fs: 'empty',
-  //   __dirname: true,
-  //   __filename: true
-  // }
+  }
 };

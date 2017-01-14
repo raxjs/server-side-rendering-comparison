@@ -1,8 +1,8 @@
 /** @jsx createElement */
 
-import { createElement, Component } from 'universal-rx';
-import List from './List/index.rx';
-import Banner from './Banner/index.rx';
+import { createElement, Component } from 'rax';
+import List from './List/index.rax';
+import Banner from './Banner/index.rax';
 
 export default class App extends Component {
 
