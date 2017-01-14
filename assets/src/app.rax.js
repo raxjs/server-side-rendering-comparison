@@ -23,14 +23,3 @@ export default class App extends Component {
   }
   
 };
-
-// export default function(props = {}) {
-
-//   return (
-//     <div>
-//       <Banner data={props.bannerData} />
-//       <List data={props.listData} />
-//     </div>
-//   );
-  
-// };
