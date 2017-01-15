@@ -40,5 +40,12 @@ module.exports = {
     'react-dom': 'window.ReactDOM',
     'rax': 'window.Rax',
     'vue': 'window.Vue'
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': '"production"'
+      }
+    }),
+  ]
 };

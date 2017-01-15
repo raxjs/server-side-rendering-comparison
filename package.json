@@ -4,11 +4,11 @@
   "description": "rax-ssr",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "NODE_ENV=production nodemon app.js",
     "webpack:client": "webpack --config webpack.client.config.js",
     "webpack:server": "webpack --config webpack.server.config.js",
     "webpack": "npm run webpack:client && npm run webpack:server",
-    "benchmark": "bash ./benchmarks/index.sh"
+    "benchmark": "NODE_ENV=production bash ./benchmarks/index.sh"
   },
   "keywords": [
     "ssr",

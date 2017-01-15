@@ -7,7 +7,7 @@ import Banner from './Banner/index.rax';
 export default class App extends Component {
 
   componentDidMount() {
-    // console.log('rx render in client');
+    // console.log('rax render in client');
   }
 
   render() {
