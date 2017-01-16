@@ -41,7 +41,8 @@ module.exports = {
     'react': 'window.React',
     'react-dom': 'window.ReactDOM',
     'rax': 'window.Rax',
-    'vue': 'window.Vue'
+    'vue': 'window.Vue',
+    'preact': 'window.preact'
   },
   plugins: [
     new webpack.DefinePlugin({

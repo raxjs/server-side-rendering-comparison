@@ -29,6 +29,8 @@
   <script src="//unpkg.com/rax@0.1.2/dist/rax.min.js"></script>
   {{elseif (type === 'vue')}}
   <script src="//unpkg.com/vue@2.1.8/dist/vue.min.js"></script>
+  {{elseif (type === 'preact')}}
+  <script src="//unpkg.com/preact@7.1.0/dist/preact.min.js"></script>
   {{/if}}
   
   <script src="./client.{{type}}.bundle.js"></script>

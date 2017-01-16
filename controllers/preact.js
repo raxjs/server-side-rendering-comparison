@@ -13,7 +13,7 @@ module.exports = {
         };
 
         yield this.render('page', {
-            type: 'rax',
+            type: 'preact',
             content: preactRenderToString(preact.h(PreactApp, pageConfig)),
             global: JSON.stringify(pageConfig)
         });
