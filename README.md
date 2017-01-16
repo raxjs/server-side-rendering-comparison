@@ -1,7 +1,10 @@
 # Server-side Rendering Comparison
 
-- MacBook Pro (Retina, 13-inch, Late 2013) 2.4 GHz Intel Core i5 with 8 GB 1600 MHz DDR3
-- Node.js v6.9.4
+## Benchmark info
+
+- Platform info: MacBook Pro (Late 2013) 2.4GHz Intel Core i5 and 8GB 1600MHz DDR3
+- Node.js v6.9.2 and with `NODE_ENV=production`. `RenderToString` both require from `lib` not `dist`
+- with about 600 dom nodes
 - React v15.4.2
 - Rax v0.1.2
 - Vue v2.1.8 
@@ -23,21 +26,13 @@ Fastest is Preact#renderToString
 
 TODO
 
-## Install
-
-```bash
-npm i
-```
-
 ## Run
 
-### run benchmark `renderToString`
-
 ```bash
+# prepare
+npm i
 npm run webpack
+
+# run renderToString benchmark
 NODE_ENV=production node benchmarks/renderToString.js
 ```
-
-### run benchmark QPS
-
-TODO
