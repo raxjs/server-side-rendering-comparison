@@ -3,7 +3,7 @@
 ## Result
 
 ```
-MacBook Air Intel Core i5 @1.4 GHz x 2 with 8 GB memory
+MacBook Pro (Retina, 13-inch, Late 2013) 2.4 GHz Intel Core i5 with 8 GB 1600 MHz DDR3
 Node.js v6.9.4
 React v15.4.2
 Rax v0.1.2
