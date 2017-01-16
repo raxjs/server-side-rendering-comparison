@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-// import listData from '../../../../mock/list';
+import styles from './styles';
 
 export default class List extends Component {
 
@@ -9,37 +9,26 @@ export default class List extends Component {
     data: this.props.data || []
   };
 
-  // componentDidMount() {
-  //   this.setState({
-  //     list: window && window.GLOBAL.listData
-  //   });
-  // }
-
   render() {
     const { data } = this.state;
     return (
-      <div>
+      <div style={styles.container}>
         <h2>ReactList</h2>
+        <div style={styles.list}>
         {
           data.map((item, idx) => {
             return (
-              <div key={idx} style={{
-                float: 'left',
-                width: 200,
-                marginRight: 10,
-                marginBottom: 10
-              }}>
-                <img src={item.img} style={{
-                  width: '100%'
-                }} />
-                <p>{item.title}</p>
-                <div>
-                  
-                </div>
-              </div>
+              <a key={idx} style={styles.item} href={item.url}>
+                <img src={item.img} style={styles.itemImg} />
+                <p style={styles.itemTitle}>{item.title}</p>
+                <p style={styles.itemPrice}>
+                  <span>price: {item.price}</span>
+                </p>
+              </a>
             );
           })
         }
+        </div>
       </div>
     );
   }

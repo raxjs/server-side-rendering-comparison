@@ -2,34 +2,31 @@
 
 'use strict';
 
+import styles from './styles';
+
 export default {
 
   props: ['data'],
 
   render(h) {
     return (
-      <div>
+      <div style={styles.container}>
         <h2>VueList</h2>
+        <div style={styles.list}>
         {
           this.data.map((item, idx) => {
             return (
-              <div key={idx} style={{
-                float: 'left',
-                width: '200px',
-                marginRight: '10px',
-                marginBottom: '10px'
-              }}>
-                <img src={item.img} style={{
-                  width: '100%'
-                }} />
-                <p>{item.title}</p>
-                <div>
-                  
-                </div>
-              </div>
+              <a key={idx} style={styles.item} href={item.url}>
+                <img src={item.img} style={styles.itemImg} />
+                <p style={styles.itemTitle}>{item.title}</p>
+                <p style={styles.itemPrice}>
+                  <span>price: {item.price}</span>
+                </p>
+              </a>
             );
           })
         }
+        </div>
       </div>
     );
   }
