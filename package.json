@@ -28,6 +28,8 @@
     "koa": "^1.2.4",
     "koa-router": "^5.4.0",
     "koa-static": "^2.0.0",
+    "preact": "^7.1.0",
+    "preact-render-to-string": "^3.3.0",
     "rax": "^0.1.2",
     "rax-server-renderer": "^0.1.2",
     "react": "^15.4.2",
