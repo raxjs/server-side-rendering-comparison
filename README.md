@@ -8,7 +8,7 @@
 
 ## Result
 
-### `rendetToString`
+### `renderToString`
 
 ```
 Rax#renderToString x 154 ops/sec ±5.19% (65 runs sampled)
