@@ -16,7 +16,7 @@ module.exports = {
   module: {
     loaders:[
       {
-        test: /(rax|react)\.js[x]?$/,
+        test: /(rax|react|.)\.js[x]?$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {

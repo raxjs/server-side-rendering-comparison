@@ -7,6 +7,16 @@
   <script>
     window.GLOBAL = JSON.parse('{{{global}}}');
   </script>
+  <style>
+    *, :after, :before {
+      box-sizing: border-box;
+    }
+    p {
+      padding: 0;
+      margin: 0;
+    }
+    
+  </style>
 </head>
 <body>
   

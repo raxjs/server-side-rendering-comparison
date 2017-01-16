@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = Array.from({ length: 5})
+module.exports = Array.from({ length: 6})
                       .map((undef, i) => {
                         return {
                           title: 'banner ' + i,
