@@ -4,31 +4,59 @@
  * compare renderToString
  */
 
-const cp = require('child_process');
+const Benchmark = require('benchmark');
 
-const limit = 10;
+const Rax = require('rax');
+const raxRenderToString = require('rax-server-renderer').renderToString;
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
+const Vue = require('vue');
+const vueRenderToString = require('vue-server-renderer').createRenderer().renderToString;
 
-// Independent process serial execution 10 times, each process parallel rendering 100 times
-runRenderTask(__dirname + '/raxRenderToString.js', limit)
-  .then(() => runRenderTask(__dirname + '/reactRenderToString.js', limit))
-  .then(() => runRenderTask(__dirname + '/vueRenderToString.js', limit))
-  .catch((err) => {
-    console.log('Got Err:', err.stack);
-  });
+const ReactApp = require('../assets/build/server.react.bundle').default;
+const RaxApp = require('../assets/build/server.rax.bundle').default;
+const VueApp = require('../assets/build/server.vue.bundle').default;
 
-function runRenderTask(script, limit) {
+const data = {
+  listData: require('../mock/list'),
+  bannerData: require('../mock/banner')
+};
 
-  limit = limit || 10;
-  return new Promise((resolve, reject) => {
-    let count = 0;
-
-    (function run() {
-      if (count === limit) {
-        return resolve();
+const vueVm = new Vue({
+  render(h) {
+    return h(VueApp, {
+      attrs: {
+        listData: data.listData,
+        bannerData: data.bannerData
       }
-      count ++;
-      cp.fork(script)
-        .on('exit', run);
-    })();
-  });
-}
+    });
+  }
+});
+
+const suite = new Benchmark.Suite;
+
+suite
+  .add('Rax#renderToString', function() {
+    raxRenderToString(Rax.createElement(RaxApp, data));
+  })
+  .add('React#renderToString', function() {
+    ReactDOMServer.renderToString(React.createElement(ReactApp, data));
+  })
+  .add('Vue#renderToString', function(deferred) {
+    vueRenderToString(vueVm, (err, html) => {
+      if(err) {
+        throw err;
+      } else {
+        deferred.resolve();
+      }
+    });
+  }, {defer: true})
+  // add listeners
+  .on('cycle', function(event) {
+    console.log(String(event.target));
+  })
+  .on('complete', function() {
+    console.log('Fastest is ' + this.filter('fastest').map('name'));
+  })
+  // run async
+  .run({ 'async': true });
