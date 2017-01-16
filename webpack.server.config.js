@@ -7,7 +7,15 @@ module.exports = {
   entry: {
     'server.react': './assets/src/server.react.js',
     'server.rax': './assets/src/server.rax.js',
-    'server.vue': './assets/src/server.vue.js'
+    'server.vue': './assets/src/server.vue.js',
+    'renderToString.react': './benchmarks/renderToString.react.js',
+    'renderToString.rax': './benchmarks/renderToString.rax.js',
+    // Vue is not compatible with webpack, so we don't compile it.
+    // 'server.vue': './assets/benchmarks/renderToString.vue.js',
+    'controller.react': './controllers/react.js',
+    'controller.rax': './controllers/rax.js',
+    // Vue is not compatible with webpack, so we don't compile it.
+    // 'controller.vue': './controllers/vue.js',
   },
   output: {
     filename: './assets/build/[name].bundle.js',
@@ -20,6 +28,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel',
         query: {
+          'plugins': ['transform-runtime'],
           'presets': ['es2015', 'react', 'stage-0']
         }
       },

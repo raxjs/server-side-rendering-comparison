@@ -6,7 +6,7 @@ module.exports = {
 
     home: function* () {
 
-        const ReactApp = require('../assets/build/server.react.bundle').default;
+        const ReactApp = require('../assets/src/app.react').default;
 
         const pageConfig = {
             listData: require('../mock/list'),

@@ -6,7 +6,7 @@ module.exports = {
 
     home: function* () {
 
-        const RaxApp = require('../assets/build/server.rax.bundle').default;
+        const RaxApp = require('../assets/src/app.rax').default;
         const pageConfig = {
             listData: require('../mock/list'),
             bannerData: require('../mock/banner')
