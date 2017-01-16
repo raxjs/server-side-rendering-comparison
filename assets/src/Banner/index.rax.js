@@ -19,16 +19,6 @@ export default class Banner extends Component {
 
     const {data} = this.state;
 
-    const itemStyle = {
-      display: 'inline-block',
-      width: '200px',
-      marginLeft: '200px'
-    };
-
-    const imgStyle = {
-      width: '100%'
-    };
-
     return (
       <div style={styles.container}>
         <h2>Rax Banner: </h2>
