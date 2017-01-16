@@ -10,6 +10,7 @@ const router = require('koa-router')();
 const reactController = require('./controllers/react');
 const raxController = require('./controllers/rax');
 const vueController = require('./controllers/vue');
+const preactController = require('./controllers/preact');
 
 const app = require('xtpl/lib/koa')(require('koa')(), {
   views:'./views'
@@ -19,6 +20,7 @@ const app = require('xtpl/lib/koa')(require('koa')(), {
 router.get('/react', reactController.home);
 router.get('/rax', raxController.home);
 router.get('/vue', vueController.home);
+router.get('/preact', preactController.home);
 
 
 app.use(serve('./assets/build'));

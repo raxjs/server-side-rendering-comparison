@@ -12,10 +12,15 @@ const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const Vue = require('vue');
 const vueRenderToString = require('vue-server-renderer').createRenderer().renderToString;
+const Preact = require('preact');
+const preactRenderToString = require('preact-render-to-string');
+
 
 const ReactApp = require('../assets/build/server.react.bundle').default;
 const RaxApp = require('../assets/build/server.rax.bundle').default;
 const VueApp = require('../assets/build/server.vue.bundle').default;
+const PreactApp = require('../assets/build/server.preact.bundle').default;
+
 
 const data = {
   listData: require('../mock/list'),
@@ -41,6 +46,9 @@ suite
   })
   .add('React#renderToString', function() {
     ReactDOMServer.renderToString(React.createElement(ReactApp, data));
+  })
+  .add('Preact#renderToString', function() {
+    preactRenderToString(Preact.h(PreactApp, data));
   })
   .add('Vue#renderToString', function(deferred) {
     vueRenderToString(vueVm, (err, html) => {

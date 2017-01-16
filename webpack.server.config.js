@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     'server.react': './assets/src/server.react.js',
     'server.rax': './assets/src/server.rax.js',
+    'server.preact': './assets/src/server.preact.js',
     'server.vue': './assets/src/server.vue.js'
   },
   output: {
@@ -16,7 +17,7 @@ module.exports = {
   module: {
     loaders:[
       {
-        test: /(rax|react|.)\.js[x]?$/,
+        test: /(preact|rax|react|.)\.js[x]?$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {

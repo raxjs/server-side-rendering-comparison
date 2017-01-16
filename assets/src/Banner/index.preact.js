@@ -1,8 +1,7 @@
-/** @jsx createElement */
-
+/** @jsx h */
 'use strict';
 
-import { createElement, Component } from 'rax';
+import { h, render, Component } from 'preact';
 import styles from './styles';
 
 export default class Banner extends Component {
@@ -21,7 +20,7 @@ export default class Banner extends Component {
 
     return (
       <div style={styles.container}>
-        <h2>Rax Banner: </h2>
+        <h2>Preact Banner: </h2>
         <div style={styles.list}>
         {
           data.map((item, idx) => {
