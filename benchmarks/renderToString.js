@@ -6,51 +6,17 @@
 
 const Benchmark = require('benchmark');
 
-const Rax = require('rax');
-const raxRenderToString = require('rax-server-renderer').renderToString;
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
-const Vue = require('vue');
-const vueRenderToString = require('vue-server-renderer').createRenderer().renderToString;
 
-const ReactApp = require('../assets/build/server.react.bundle').default;
-const RaxApp = require('../assets/build/server.rax.bundle').default;
-const VueApp = require('../assets/build/server.vue.bundle').default;
-
-const data = {
-  listData: require('../mock/list'),
-  bannerData: require('../mock/banner')
-};
-
-const vueVm = new Vue({
-  render(h) {
-    return h(VueApp, {
-      attrs: {
-        listData: data.listData,
-        bannerData: data.bannerData
-      }
-    });
-  }
-});
+const reactRenderToString = require('../assets/build/renderToString.react.bundle');
+const raxRenderToString = require('../assets/build/renderToString.rax.bundle');
+const vueRenderToString = require('./renderToString.vue');
 
 const suite = new Benchmark.Suite;
 
 suite
-  .add('Rax#renderToString', function() {
-    raxRenderToString(Rax.createElement(RaxApp, data));
-  })
-  .add('React#renderToString', function() {
-    ReactDOMServer.renderToString(React.createElement(ReactApp, data));
-  })
-  .add('Vue#renderToString', function(deferred) {
-    vueRenderToString(vueVm, (err, html) => {
-      if(err) {
-        throw err;
-      } else {
-        deferred.resolve();
-      }
-    });
-  }, {defer: true})
+  .add('Rax#renderToString', raxRenderToString)
+  .add('React#renderToString', reactRenderToString)
+  .add('Vue#renderToString', vueRenderToString, {defer: true})
   // add listeners
   .on('cycle', function(event) {
     console.log(String(event.target));

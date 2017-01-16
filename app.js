@@ -7,8 +7,8 @@ const koa = require('koa');
 const serve = require('koa-static');
 const router = require('koa-router')();
 
-const reactController = require('./controllers/react');
-const raxController = require('./controllers/rax');
+const reactController = require('./assets/build/controller.react.bundle');
+const raxController = require('./assets/build/controller.rax.bundle');
 const vueController = require('./controllers/vue');
 
 const app = require('xtpl/lib/koa')(require('koa')(), {
