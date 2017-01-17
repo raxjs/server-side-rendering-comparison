@@ -22,10 +22,6 @@ Vue#renderToString x 391 ops/sec ±9.81% (65 runs sampled)
 Fastest is Preact#renderToString
 ```
 
-### QPS
-
-TODO
-
 ## Run
 
 ```bash
