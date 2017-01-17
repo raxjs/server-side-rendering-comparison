@@ -1,1 +1,1 @@
-module.exports = require('./app.preact');
+module.exports = require('./app/index.preact');

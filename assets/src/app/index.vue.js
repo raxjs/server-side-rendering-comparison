@@ -1,6 +1,6 @@
 
-import List from './List/index.vue';
-import Banner from './Banner/index.vue';
+import List from '../list/index.vue';
+import Banner from '../banner/index.vue';
 
 export default {
   props: ['bannerData', 'listData'],

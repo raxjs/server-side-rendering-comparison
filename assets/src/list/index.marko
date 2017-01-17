@@ -1,0 +1,14 @@
+<import { default as styles } from './styles'/>
+
+<div style=styles.container>
+  <h2>MarkoList</h2>
+  <div style=styles.list>
+    <a for(idx, item in data.items) style=styles.item href=item.url>
+      <img src=item.img style=styles.itemImg />
+      <p style=styles.itemTitle>${item.title}</p>
+      <p style=styles.itemPrice>
+        <span>price: ${item.price}</span>
+      </p>
+    </a>
+  </div>
+</div>
