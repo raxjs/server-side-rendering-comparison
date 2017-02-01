@@ -6,6 +6,7 @@ module.exports = {
   target: 'node',
   entry: {
     'server.react': './assets/src/server.react.js',
+    'server.svelte': './assets/src/server.svelte.js',
     'server.rax': './assets/src/server.rax.js',
     'server.preact': './assets/src/server.preact.js',
     'server.vue': './assets/src/server.vue.js'
@@ -17,7 +18,7 @@ module.exports = {
   module: {
     loaders:[
       {
-        test: /(preact|rax|react|.)\.js[x]?$/,
+        test: /(preact|rax|react|.)\.(js[x]?|html)$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
@@ -33,6 +34,14 @@ module.exports = {
           'plugins': [
             'transform-vue-jsx'
           ]
+        }
+      },
+      {
+        test: /\.svelte\.html?$/,
+        exclude: /node_modules/,
+        loader: 'svelte',
+        query: {
+          generate: 'ssr'
         }
       }
     ]

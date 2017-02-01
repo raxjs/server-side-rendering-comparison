@@ -6,6 +6,7 @@ module.exports = {
 
   entry: {
     'client.react': './assets/src/client.react.js',
+    'client.svelte': './assets/src/client.svelte.js',
     'client.rax': './assets/src/client.rax.js',
     'client.preact': './assets/src/client.preact.js',
     'client.vue': './assets/src/client.vue.js'
@@ -17,7 +18,7 @@ module.exports = {
     loaders:[
       // react & rax & styles.js
       {
-        test: /(rax|react|preact|.)\.js[x]?$/,
+        test: /(rax|react|preact|.)\.(js[x]?|html)$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
@@ -34,6 +35,11 @@ module.exports = {
             'transform-vue-jsx'
           ]
         }
+      },
+      {
+        test: /\.svelte\.html?$/,
+        exclude: /node_modules/,
+        loader: 'svelte',
       }
     ]
   },

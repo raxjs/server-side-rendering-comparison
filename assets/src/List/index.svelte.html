@@ -1,0 +1,27 @@
+<div style="{{styles.container}}">
+  <h2>SvelteList</h2>
+  <div style="{{styles.list}}">
+  {{#each data as item, idx}}
+    <a key="{{idx}}" style="{{styles.item}}" href="{{item.url}}">
+      <img src="{{item.img}}" style="{{styles.itemImg}}" />
+      <p style="{{styles.itemTitle}}">{{item.title}}</p>
+      <p style="{{styles.itemPrice}}">
+        <span>price: {{item.price}}</span>
+      </p>
+    </a>
+  {{/each}}
+  </div>
+</div>
+
+<script>
+  import styles from './styles';
+
+  export default {
+    data() {
+      return {
+        data: [],
+        styles,
+      };
+    },
+  }
+</script>

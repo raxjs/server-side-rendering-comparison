@@ -1,0 +1,22 @@
+<div>
+  <Banner data="{{bannerData}}" />
+  <List data="{{listData}}" />
+</div>
+
+<script>
+  import List from './List/index.svelte.html';
+  import Banner from './Banner/index.svelte.html';
+
+  export default {
+    data() {
+      return {
+        bannerData: [],
+        listData: [],
+      };
+    },
+    components: {
+      List,
+      Banner,
+    },
+  };
+</script>

@@ -15,11 +15,11 @@
       padding: 0;
       margin: 0;
     }
-    
+
   </style>
 </head>
 <body>
-  
+
   <div id="container">{{{ content }}}</div>
 
   {{#if(type === 'react')}}
@@ -31,8 +31,9 @@
   <script src="//unpkg.com/vue@2.1.8/dist/vue.min.js"></script>
   {{elseif (type === 'preact')}}
   <script src="//unpkg.com/preact@7.1.0/dist/preact.min.js"></script>
+  {{elseif (type === 'svelte')}}
   {{/if}}
-  
+
   <script src="./client.{{type}}.bundle.js"></script>
 
 </body>

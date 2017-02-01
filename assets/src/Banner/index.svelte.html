@@ -1,0 +1,28 @@
+<div style="{{styles.container}}">
+  <h2>Svelte Banner: </h2>
+  <div style="{{styles.list}}">
+  {{#each data as item, idx}}
+    <div style="{{styles.item}}" onClick="onBannerClick(item)">
+      <img src="{{item.img}}" style="{{styles.itemImg}}" />
+    </div>
+  {{/each}}
+  </div>
+</div>
+
+<script>
+  import styles from './styles';
+
+  export default {
+    data() {
+      return {
+        data: [],
+        styles,
+      };
+    },
+    methods: {
+      onBannerClick: function (item) {
+        alert('click banner:' + item.title);
+      },
+    },
+  }
+</script>

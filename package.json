@@ -34,6 +34,8 @@
     "rax-server-renderer": "^0.1.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "svelte": "^1.6.7",
+    "svelte-loader": "^1.2.1",
     "vue": "^2.1.8",
     "vue-server-renderer": "^2.1.8",
     "xtemplate": "^4.6.0",
