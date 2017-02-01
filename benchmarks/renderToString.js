@@ -20,6 +20,7 @@ const ReactApp = require('../assets/build/server.react.bundle').default;
 const RaxApp = require('../assets/build/server.rax.bundle').default;
 const VueApp = require('../assets/build/server.vue.bundle').default;
 const PreactApp = require('../assets/build/server.preact.bundle').default;
+const SvelteApp = require('../assets/build/server.svelte.bundle').default;
 
 
 const data = {
@@ -59,6 +60,9 @@ suite
       }
     });
   }, {defer: true})
+  .add('Svelte#renderToString', function() {
+    SvelteApp.render(data);
+  })
   // add listeners
   .on('cycle', function(event) {
     console.log(String(event.target));
