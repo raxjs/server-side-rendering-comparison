@@ -14,7 +14,6 @@ const Vue = require('vue');
 const vueRenderToString = require('vue-server-renderer').createRenderer().renderToString;
 const Preact = require('preact');
 const preactRenderToString = require('preact-render-to-string');
-const Inferno = require('inferno');
 const InfernoServer = require('inferno-server');
 const infernoCreateElement = require('inferno-create-element');
 
@@ -52,12 +51,7 @@ suite
     ReactDOMServer.renderToString(React.createElement(ReactApp, data));
   })
   .add('Inferno#renderToString', function() {
-    try {
-        InfernoServer.renderToString(infernoCreateElement(InfernoApp, data));
-    } catch (e) {
-      console.log(e);
-    }
-
+    InfernoServer.renderToString(infernoCreateElement(InfernoApp, data));
   })
   .add('Preact#renderToString', function() {
     preactRenderToString(Preact.h(PreactApp, data));

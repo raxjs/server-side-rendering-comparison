@@ -1,6 +1,5 @@
-import Inferno from 'inferno';
-import createElement from 'inferno-create-element';
-import InfernoServer from 'inferno-server';
+const createElement = require('inferno-create-element');
+const InfernoServer = require('inferno-server');
 
 module.exports = {
 
