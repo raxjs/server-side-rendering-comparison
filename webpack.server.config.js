@@ -8,7 +8,8 @@ module.exports = {
     'server.react': './assets/src/server.react.js',
     'server.rax': './assets/src/server.rax.js',
     'server.preact': './assets/src/server.preact.js',
-    'server.vue': './assets/src/server.vue.js'
+    'server.vue': './assets/src/server.vue.js',
+    'server.inferno': './assets/src/server.inferno.js'
   },
   output: {
     filename: './assets/build/[name].bundle.js',
@@ -23,6 +24,17 @@ module.exports = {
         query: {
           'presets': ['es2015', 'react', 'stage-0']
         }
+      },
+      {
+          test: /\.inferno\.js?$/,
+          exclude: /node_modules/,
+          loader: 'babel',
+          query: {
+              'presets': ['es2015', 'stage-0'],
+              'plugins': [
+                  'inferno'
+              ]
+          }
       },
       {
         test: /\.vue\.js?$/,

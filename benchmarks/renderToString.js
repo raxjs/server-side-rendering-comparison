@@ -14,12 +14,16 @@ const Vue = require('vue');
 const vueRenderToString = require('vue-server-renderer').createRenderer().renderToString;
 const Preact = require('preact');
 const preactRenderToString = require('preact-render-to-string');
+const Inferno = require('inferno');
+const InfernoServer = require('inferno-server');
+const infernoCreateElement = require('inferno-create-element');
 
 
 const ReactApp = require('../assets/build/server.react.bundle').default;
 const RaxApp = require('../assets/build/server.rax.bundle').default;
 const VueApp = require('../assets/build/server.vue.bundle').default;
 const PreactApp = require('../assets/build/server.preact.bundle').default;
+const InfernoApp = require('../assets/build/server.inferno.bundle').default;
 
 
 const data = {
@@ -46,6 +50,14 @@ suite
   })
   .add('React#renderToString', function() {
     ReactDOMServer.renderToString(React.createElement(ReactApp, data));
+  })
+  .add('Inferno#renderToString', function() {
+    try {
+        InfernoServer.renderToString(infernoCreateElement(InfernoApp, data));
+    } catch (e) {
+      console.log(e);
+    }
+
   })
   .add('Preact#renderToString', function() {
     preactRenderToString(Preact.h(PreactApp, data));
