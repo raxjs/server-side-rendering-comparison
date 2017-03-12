@@ -23,16 +23,16 @@
   <div id="container">{{{ content }}}</div>
 
   {{#if(type === 'react')}}
-  <script src="//unpkg.com/react@15.4.0/dist/react.min.js"></script>
-  <script src="//unpkg.com/react-dom@15.4.0/dist/react-dom.min.js"></script>
+  <script src="//unpkg.com/react@latest/dist/react.min.js"></script>
+  <script src="//unpkg.com/react-dom@latest/dist/react-dom.min.js"></script>
   {{elseif (type === 'rax')}}
-  <script src="//unpkg.com/rax@0.1.2/dist/rax.min.js"></script>
+  <script src="//unpkg.com/rax@latest/dist/rax.min.js"></script>
   {{elseif (type === 'inferno')}}
-  <script src="//unpkg.com/inferno@1.2.2/dist/inferno.min.js"></script>
+  <script src="//unpkg.com/inferno@latest/dist/inferno.min.js"></script>
   {{elseif (type === 'vue')}}
-  <script src="//unpkg.com/vue@2.1.8/dist/vue.min.js"></script>
+  <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
   {{elseif (type === 'preact')}}
-  <script src="//unpkg.com/preact@7.1.0/dist/preact.min.js"></script>
+  <script src="//unpkg.com/preact@latest/dist/preact.min.js"></script>
   {{/if}}
   
   <script src="./client.{{type}}.bundle.js"></script>
