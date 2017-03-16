@@ -2,8 +2,8 @@
 /** @jsx h */
 
 import { h, render, Component } from 'preact';
-import List from '../list/index.preact';
-import Banner from '../banner/index.preact';
+import List from './list/index.preact';
+import Banner from './banner/index.preact';
 
 export default class App extends Component {
 

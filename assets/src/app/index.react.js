@@ -1,7 +1,7 @@
 
 import React from 'react';
-import List from '../list/index.react';
-import Banner from '../banner/index.react';
+import List from './list/index.react';
+import Banner from './banner/index.react';
 
 export default class App extends React.Component {
 

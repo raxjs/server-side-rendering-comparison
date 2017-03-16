@@ -1,8 +1,8 @@
 /** @jsx createElement */
 
 import { createElement, Component } from 'rax';
-import List from '../list/index.rax';
-import Banner from '../banner/index.rax';
+import List from './list/index.rax';
+import Banner from './banner/index.rax';
 
 export default class App extends Component {
 
