@@ -5,6 +5,7 @@ var webpack = require('webpack');
 module.exports = {
   target: 'node',
   entry: {
+    'server.marko': './assets/src/app/index.marko',
     'server.react': './assets/src/server.react.js',
     'server.rax': './assets/src/server.rax.js',
     'server.preact': './assets/src/server.preact.js',
@@ -46,13 +47,22 @@ module.exports = {
             'transform-vue-jsx'
           ]
         }
+      },
+      {
+        test: /\.marko$/,
+        exclude: /node_modules/,
+        loader: 'marko-loader',
+        query: {
+          'target': 'server'
+        }
       }
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': '"production"'
+        'NODE_ENV': '"production"',
+        'BUNDLE': 'true'
       }
     }),
   ]

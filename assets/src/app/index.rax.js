@@ -1,8 +1,8 @@
 /** @jsx createElement */
 
 import { createElement, Component } from 'rax';
-import List from './List/index.rax';
-import Banner from './Banner/index.rax';
+import List from '../list/index.rax';
+import Banner from '../banner/index.rax';
 
 export default class App extends Component {
 
@@ -11,7 +11,7 @@ export default class App extends Component {
   }
 
   render() {
-    
+
     const props = this.props || {};
 
     return (
@@ -21,5 +21,5 @@ export default class App extends Component {
       </div>
     );
   }
-  
+
 };

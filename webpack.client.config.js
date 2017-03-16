@@ -5,6 +5,7 @@ var webpack = require('webpack');
 module.exports = {
 
   entry: {
+    'client.marko': './assets/src/app/index.marko',
     'client.react': './assets/src/client.react.js',
     'client.rax': './assets/src/client.rax.js',
     'client.preact': './assets/src/client.preact.js',
@@ -46,6 +47,11 @@ module.exports = {
             'transform-vue-jsx'
           ]
         }
+      },
+      {
+        test: /\.marko$/,
+        exclude: /node_modules/,
+        loader: 'marko-loader'
       }
     ]
   },

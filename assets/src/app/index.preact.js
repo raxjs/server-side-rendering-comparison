@@ -2,8 +2,8 @@
 /** @jsx h */
 
 import { h, render, Component } from 'preact';
-import List from './List/index.preact';
-import Banner from './Banner/index.preact';
+import List from '../list/index.preact';
+import Banner from '../banner/index.preact';
 
 export default class App extends Component {
 
@@ -21,6 +21,6 @@ export default class App extends Component {
         <List data={props.listData} />
       </div>
     );
-  
+
   }
 };

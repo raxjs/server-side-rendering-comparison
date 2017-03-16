@@ -1,1 +1,1 @@
-module.exports = require('./app.rax');
+module.exports = require('./app/index.rax');

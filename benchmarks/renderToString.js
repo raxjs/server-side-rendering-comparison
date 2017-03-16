@@ -22,6 +22,7 @@ const ReactApp = require('../assets/build/server.react.bundle').default;
 const RaxApp = require('../assets/build/server.rax.bundle').default;
 const VueApp = require('../assets/build/server.vue.bundle').default;
 const PreactApp = require('../assets/build/server.preact.bundle').default;
+const MarkoApp = require('../assets/build/server.marko.bundle');
 const InfernoApp = require('../assets/build/server.inferno.bundle').default;
 
 
@@ -65,6 +66,9 @@ suite
       }
     });
   }, {defer: true})
+  .add('Marko#renderToString', function() {
+    MarkoApp.renderToString(data);
+  })
   // add listeners
   .on('cycle', function(event) {
     console.log(String(event.target));

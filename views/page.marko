@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marko Page</title>
+
+  <style>
+    *, :after, :before {
+      box-sizing: border-box;
+    }
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <include(data.app, data.pageConfig)/>
+  </div>
+
+  <script src="./client.marko.bundle.js"></script>
+
+</body>
+</html>
