@@ -1,7 +1,7 @@
 {
   "name": "server-side-rendering-comparison",
   "version": "0.1.0",
-  "description": "rax-ssr",
+  "description": "Server-side rendering comparison",
   "main": "app.js",
   "scripts": {
     "start": "NODE_ENV=production nodemon app.js",
@@ -11,8 +11,7 @@
     "benchmark": "NODE_ENV=production bash ./benchmarks/index.sh"
   },
   "keywords": [
-    "ssr",
-    "rax"
+    "ssr"
   ],
   "repository": {
     "type": "git",
