@@ -34,6 +34,7 @@
     "marko": "latest",
     "preact": "latest",
     "preact-render-to-string": "latest",
+    "rapscallion": "^2.1.5",
     "rax": "latest",
     "rax-server-renderer": "latest",
     "react": "latest",

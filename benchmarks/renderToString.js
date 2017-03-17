@@ -16,7 +16,7 @@ const Preact = require('preact');
 const preactRenderToString = require('preact-render-to-string');
 const InfernoServer = require('inferno-server');
 const infernoCreateElement = require('inferno-create-element');
-
+const {render} = require("rapscallion");
 
 const ReactApp = require('../assets/build/server.react.bundle').default;
 const RaxApp = require('../assets/build/server.rax.bundle').default;
@@ -24,7 +24,6 @@ const VueApp = require('../assets/build/server.vue.bundle').default;
 const PreactApp = require('../assets/build/server.preact.bundle').default;
 const MarkoApp = require('../assets/build/server.marko.bundle');
 const InfernoApp = require('../assets/build/server.inferno.bundle').default;
-
 
 const data = {
   listData: require('../mock/list'),
@@ -51,6 +50,12 @@ suite
   .add('React#renderToString', function() {
     ReactDOMServer.renderToString(React.createElement(ReactApp, data));
   })
+  .add('Rapscallion#render', function(deferred) {
+    render(React.createElement(ReactApp, data)).toPromise()
+    .then(htmlString => {
+      deferred.resolve();
+    });;
+  }, {defer: true})
   .add('Inferno#renderToString', function() {
     InfernoServer.renderToString(infernoCreateElement(InfernoApp, data));
   })
