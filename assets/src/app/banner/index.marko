@@ -1,13 +1,18 @@
 <import { default as styles } from './styles'/>
 
 class {
+  onCreate() {
+    this.state = {
+      title: 'Marko Banner'
+    };
+  }
   onBannerClick(title) {
     alert('click banner:' + title);
   }
 }
 
 <div style=styles.container>
-  <h2>Marko Banner: </h2>
+  <h2>${state.title}</h2>
   <div style=styles.list>
     <div for(idx, item in data.items) style=styles.item on-click('onBannerClick', item.title)>
       <img src=item.img style=styles.itemImg />
