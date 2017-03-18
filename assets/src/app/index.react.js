@@ -15,8 +15,8 @@ export default class App extends React.Component {
 
     return (
       <div>
-        <Banner data={props.bannerData} />
-        <List data={props.listData} />
+        <Banner cacheKey={"banner"} data={props.bannerData} />
+        <List cacheKey={"list"} data={props.listData} />
       </div>
     );
 

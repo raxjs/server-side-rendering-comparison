@@ -1,0 +1,29 @@
+<div>
+
+  <div>
+    <h2>Xtpl Banner: </h2>
+    <div>
+    {{#each(bannerData)}}
+      <div>
+        <img src="{{this.img}}" />
+      </div>
+    {{/each}}
+    </div>
+  </div>
+
+  <div>
+    <h2>Xtpl List</h2>
+    <div>
+    {{#each(listData)}}
+      <a href="{{this.url}}">
+        <img src="{{this.img}}" />
+        <p>{{this.title}}</p>
+        <p>
+          <span>price: {{this.price}}</span>
+        </p>
+      </a>
+    {{/each}}
+    </div>
+  </div>
+
+</div>

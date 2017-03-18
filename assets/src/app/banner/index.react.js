@@ -14,7 +14,6 @@ export default class Banner extends React.Component {
   }
 
   render() {
-
     const {data} = this.state;
 
     return (
