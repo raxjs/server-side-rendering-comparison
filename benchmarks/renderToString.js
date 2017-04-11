@@ -34,23 +34,29 @@ const data = {
   bannerData: require('../mock/banner')
 };
 
-const vueVm = new Vue({
-  render(h) {
-    return h(VueApp, {
-      attrs: {
-        listData: data.listData,
-        bannerData: data.bannerData
-      }
-    });
-  }
-});
-
 const suite = new Benchmark.Suite;
 
 suite
   .add('React#renderToString', function() {
     ReactDOMServer.renderToString(React.createElement(ReactApp, data));
   })
+  .add('Vue#renderToString', function(deferred) {
+    const vueVm = new Vue({
+      render(h) {
+        return h(VueApp, {
+          attrs: {
+            listData: data.listData,
+            bannerData: data.bannerData
+          }
+        });
+      }
+    });
+    vueRenderToString(vueVm, (err, res) => {
+      if (!err) {
+        deferred.resolve();
+      }
+    });
+  }, {defer: true})
   .add('Rax#renderToString', function() {
     raxRenderToString(Rax.createElement(RaxApp, data));
   })
