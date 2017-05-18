@@ -24,6 +24,8 @@
     "name": "imsobear"
   },
   "dependencies": {
+    "fast-react-render": "^1.2.2",
+    "fast-react-server": "^1.4.1",
     "inferno": "latest",
     "inferno-component": "latest",
     "inferno-create-element": "latest",

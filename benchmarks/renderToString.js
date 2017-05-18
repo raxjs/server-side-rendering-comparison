@@ -11,6 +11,8 @@ const Rax = require('rax');
 const raxRenderToString = require('rax-server-renderer').renderToString;
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
+const FastReact = require('fast-react-server');
+const FastReactRender = require('fast-react-render');
 const Vue = require('vue');
 const vueRenderToString = require('vue-server-renderer').createRenderer().renderToString;
 const Preact = require('preact');
@@ -20,6 +22,7 @@ const infernoCreateElement = require('inferno-create-element');
 const {render} = require("rapscallion");
 
 const ReactApp = require('../assets/build/server.react.bundle').default;
+const FastReactApp = require('../assets/build/server.fast_react.bundle').default;
 const RaxApp = require('../assets/build/server.rax.bundle').default;
 const VueApp = require('../assets/build/server.vue.bundle').default;
 const PreactApp = require('../assets/build/server.preact.bundle').default;
@@ -50,6 +53,9 @@ const suite = new Benchmark.Suite;
 suite
   .add('React#renderToString', function() {
     ReactDOMServer.renderToString(React.createElement(ReactApp, data));
+  })
+  .add('FastReact#elementToString', function() {
+    FastReactRender.elementToString(FastReact.createElement(FastReactApp, data));
   })
   .add('Rax#renderToString', function() {
     raxRenderToString(Rax.createElement(RaxApp, data));

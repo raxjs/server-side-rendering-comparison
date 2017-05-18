@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     'server.marko': './assets/src/app/index.marko',
     'server.react': './assets/src/server.react.js',
+    'server.fast_react': './assets/src/server.fast_react.js',
     'server.rax': './assets/src/server.rax.js',
     'server.preact': './assets/src/server.preact.js',
     'server.vue': './assets/src/server.vue.js',
@@ -19,7 +20,7 @@ module.exports = {
   module: {
     loaders:[
       {
-        test: /(preact|rax|react|.)\.js[x]?$/,
+        test: /(preact|rax|react|fast_react|.)\.js[x]?$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
