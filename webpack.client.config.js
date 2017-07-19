@@ -19,7 +19,7 @@ module.exports = {
     loaders:[
       // react & rax & styles.js
       {
-        test: /(rax|react|preact|.)\.js[x]?$/,
+        test: /(rax|p?react|.)\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
