@@ -6,6 +6,7 @@
 
 const Benchmark = require('benchmark');
 
+const xtpl = require('xtpl');
 const Rax = require('rax');
 const raxRenderToString = require('rax-server-renderer').renderToString;
 const React = require('react');
@@ -24,6 +25,9 @@ const VueApp = require('../assets/build/server.vue.bundle').default;
 const PreactApp = require('../assets/build/server.preact.bundle').default;
 const MarkoApp = require('../assets/build/server.marko.bundle');
 const InfernoApp = require('../assets/build/server.inferno.bundle').default;
+
+const path = require('path');
+const xtplAppPath = path.join(__dirname, '../assets/src/app/index.xtpl');
 
 const data = {
   listData: require('../mock/list'),
@@ -44,11 +48,17 @@ const vueVm = new Vue({
 const suite = new Benchmark.Suite;
 
 suite
+  .add('React#renderToString', function() {
+    ReactDOMServer.renderToString(React.createElement(ReactApp, data));
+  })
   .add('Rax#renderToString', function() {
     raxRenderToString(Rax.createElement(RaxApp, data));
   })
-  .add('React#renderToString', function() {
-    ReactDOMServer.renderToString(React.createElement(ReactApp, data));
+  .add('Inferno#renderToString', function() {
+    InfernoServer.renderToString(infernoCreateElement(InfernoApp, data));
+  })
+  .add('Preact#renderToString', function() {
+    preactRenderToString(Preact.h(PreactApp, data));
   })
   .add('Rapscallion#render', function(deferred) {
     render(React.createElement(ReactApp, data)).toPromise()
@@ -56,24 +66,14 @@ suite
       deferred.resolve();
     });;
   }, {defer: true})
-  .add('Inferno#renderToString', function() {
-    InfernoServer.renderToString(infernoCreateElement(InfernoApp, data));
-  })
-  .add('Preact#renderToString', function() {
-    preactRenderToString(Preact.h(PreactApp, data));
-  })
-  .add('Vue#renderToString', function(deferred) {
-    vueRenderToString(vueVm, (err, html) => {
-      if(err) {
-        throw err;
-      } else {
-        deferred.resolve();
-      }
-    });
-  }, {defer: true})
   .add('Marko#renderToString', function() {
     MarkoApp.renderToString(data);
   })
+  .add('Xtpl#renderFile', function(deferred){
+    xtpl.renderFile(xtplAppPath, data, function(error, content){
+      deferred.resolve();
+    });
+  }, {defer: true})
   // add listeners
   .on('cycle', function(event) {
     console.log(String(event.target));
