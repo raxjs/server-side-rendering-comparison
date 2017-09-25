@@ -19,7 +19,7 @@ module.exports = {
     loaders:[
       // react & rax & styles.js
       {
-        test: /(rax|react|preact|.)\.js[x]?$/,
+        test: /(rax|p?react|.)\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
@@ -27,15 +27,13 @@ module.exports = {
         }
       },
       {
-          test: /\.inferno\.js?$/,
-          exclude: /node_modules/,
-          loader: 'babel',
-          query: {
-              'presets': ['es2015', 'stage-0'],
-              'plugins': [
-                  'inferno'
-              ]
-          }
+        test: /\.inferno\.js?$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'stage-0'],
+          plugins: ['babel-plugin-syntax-jsx', 'inferno']
+        }
       },
       {
         test: /\.vue\.js?$/,

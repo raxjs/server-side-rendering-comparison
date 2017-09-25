@@ -34,17 +34,6 @@ const data = {
   bannerData: require('../mock/banner')
 };
 
-const vueVm = new Vue({
-  render(h) {
-    return h(VueApp, {
-      attrs: {
-        listData: data.listData,
-        bannerData: data.bannerData
-      }
-    });
-  }
-});
-
 const suite = new Benchmark.Suite;
 
 suite
@@ -65,6 +54,24 @@ suite
     .then(htmlString => {
       deferred.resolve();
     });;
+  }, {defer: true})
+  .add('Vue#renderToString', function(deferred) {
+    const vueVm = new Vue({
+      render(h) {
+        return h(VueApp, {
+          attrs: {
+            listData: data.listData,
+            bannerData: data.bannerData
+          }
+        });
+      }
+    });
+    vueRenderToString(vueVm, (err, html) => {
+      if(err) {
+        return deferred.reject(err);
+      }
+      deferred.resolve();
+    });
   }, {defer: true})
   .add('Marko#renderToString', function() {
     MarkoApp.renderToString(data);
