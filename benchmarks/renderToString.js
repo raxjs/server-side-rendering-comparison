@@ -17,7 +17,7 @@ const Preact = require('preact');
 const preactRenderToString = require('preact-render-to-string');
 const InfernoServer = require('inferno-server');
 const infernoCreateElement = require('inferno-create-element');
-const {render} = require("rapscallion");
+// const {render} = require("rapscallion");
 
 const ReactApp = require('../assets/build/server.react.bundle').default;
 const RaxApp = require('../assets/build/server.rax.bundle').default;
@@ -49,12 +49,12 @@ suite
   .add('Preact#renderToString', function() {
     preactRenderToString(Preact.h(PreactApp, data));
   })
-  .add('Rapscallion#render', function(deferred) {
-    render(React.createElement(ReactApp, data)).toPromise()
-    .then(htmlString => {
-      deferred.resolve();
-    });;
-  }, {defer: true})
+  // .add('Rapscallion#render', function(deferred) {
+  //   render(React.createElement(ReactApp, data)).toPromise()
+  //   .then(htmlString => {
+  //     deferred.resolve();
+  //   });;
+  // }, {defer: true})
   .add('Vue#renderToString', function(deferred) {
     const vueVm = new Vue({
       render(h) {

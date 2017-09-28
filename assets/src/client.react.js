@@ -4,4 +4,4 @@ import ReactDom from 'react-dom';
 
 import App from './app/index.react';
 
-ReactDom.render(<App {...window.GLOBAL} />, document.getElementById('container'));
+ReactDom.hydrate(<App {...window.GLOBAL} />, document.getElementById('container'));

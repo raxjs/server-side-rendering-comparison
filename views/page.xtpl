@@ -15,26 +15,26 @@
       padding: 0;
       margin: 0;
     }
-    
+
   </style>
 </head>
 <body>
-  
+
   <div id="container">{{{ content }}}</div>
 
   {{#if(type === 'react')}}
-  <script src="//unpkg.com/react@latest/dist/react.min.js"></script>
-  <script src="//unpkg.com/react-dom@latest/dist/react-dom.min.js"></script>
+  <script src="//unpkg.com/react@latest/umd/react.development.js"></script>
+  <script src="//unpkg.com/react-dom@latest/umd/react-dom.development.js"></script>
   {{elseif (type === 'rax')}}
-  <script src="//unpkg.com/rax@latest/dist/rax.min.js"></script>
+  <script src="//unpkg.com/rax@latest/dist/rax.js"></script>
   {{elseif (type === 'inferno')}}
-  <script src="//unpkg.com/inferno@latest/dist/inferno.min.js"></script>
+  <script src="//unpkg.com/inferno@latest/dist/inferno.js"></script>
   {{elseif (type === 'vue')}}
-  <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+  <script src="//unpkg.com/vue@latest/dist/vue.js"></script>
   {{elseif (type === 'preact')}}
-  <script src="//unpkg.com/preact@latest/dist/preact.min.js"></script>
+  <script src="//unpkg.com/preact@latest/dist/preact.js"></script>
   {{/if}}
-  
+
   <script src="./client.{{type}}.bundle.js"></script>
 
 </body>

@@ -2,8 +2,8 @@
 
 'use strict';
 
-import { createElement, Component, render } from 'rax';
+import { createElement, Component, render, hydrate } from 'rax';
 
 import App from './app/index.rax';
 
-render(<App {...window.GLOBAL} />, document.getElementById('container'));
+hydrate(<App {...window.GLOBAL} />, document.getElementById('container'));
