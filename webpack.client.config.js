@@ -10,7 +10,8 @@ module.exports = {
     'client.rax': './assets/src/client.rax.js',
     'client.preact': './assets/src/client.preact.js',
     'client.vue': './assets/src/client.vue.js',
-    'client.inferno': './assets/src/client.inferno.js'
+    'client.inferno': './assets/src/client.inferno.js',
+    'client.hyperapp': './assets/src/client.hyperapp.js'
   },
   output: {
     filename: './assets/build/[name].bundle.js'
@@ -19,7 +20,7 @@ module.exports = {
     loaders:[
       // react & rax & styles.js
       {
-        test: /(rax|p?react|.)\.jsx?$/,
+        test: /(hyperapp|preact|rax|react|.)\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
@@ -59,7 +60,8 @@ module.exports = {
     'rax': 'window.Rax',
     'vue': 'window.Vue',
     'preact': 'window.preact',
-    'inferno': 'window.Inferno'
+    'inferno': 'window.Inferno',
+    'hyperapp': 'window.hyperapp'
   },
   plugins: [
     new webpack.DefinePlugin({

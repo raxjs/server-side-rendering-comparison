@@ -24,6 +24,8 @@
     "name": "imsobear"
   },
   "dependencies": {
+    "hyperapp": "^1.1.2",
+    "hyperapp-render": "^1.1.0",
     "inferno": "latest",
     "inferno-component": "latest",
     "inferno-create-element": "latest",

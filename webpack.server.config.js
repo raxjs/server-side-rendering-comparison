@@ -10,7 +10,8 @@ module.exports = {
     'server.rax': './assets/src/server.rax.js',
     'server.preact': './assets/src/server.preact.js',
     'server.vue': './assets/src/server.vue.js',
-    'server.inferno': './assets/src/server.inferno.js'
+    'server.inferno': './assets/src/server.inferno.js',
+    'server.hyperapp': './assets/src/server.hyperapp.js'
   },
   output: {
     filename: './assets/build/[name].bundle.js',
@@ -19,7 +20,7 @@ module.exports = {
   module: {
     loaders:[
       {
-        test: /(preact|rax|react|.)\.js[x]?$/,
+        test: /(hyperapp|preact|rax|react|.)\.js[x]?$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {

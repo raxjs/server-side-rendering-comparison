@@ -17,6 +17,7 @@ const Preact = require('preact');
 const preactRenderToString = require('preact-render-to-string');
 const InfernoServer = require('inferno-server');
 const infernoCreateElement = require('inferno-create-element');
+const hyperappRenderToString = require('hyperapp-render').renderToString;
 // const {render} = require("rapscallion");
 
 const ReactApp = require('../assets/build/server.react.bundle').default;
@@ -25,6 +26,7 @@ const VueApp = require('../assets/build/server.vue.bundle').default;
 const PreactApp = require('../assets/build/server.preact.bundle').default;
 const MarkoApp = require('../assets/build/server.marko.bundle');
 const InfernoApp = require('../assets/build/server.inferno.bundle').default;
+const HyperappApp = require('../assets/build/server.hyperapp.bundle').default;
 
 const path = require('path');
 const xtplAppPath = path.join(__dirname, '../assets/src/app/index.xtpl');
@@ -81,6 +83,9 @@ suite
       deferred.resolve();
     });
   }, {defer: true})
+  .add('Hyperapp#renderToString', function() {
+    hyperappRenderToString(HyperappApp(data));
+  })
   // add listeners
   .on('cycle', function(event) {
     console.log(String(event.target));

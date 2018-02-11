@@ -33,6 +33,8 @@
   <script src="//unpkg.com/vue@latest/dist/vue.js"></script>
   {{elseif (type === 'preact')}}
   <script src="//unpkg.com/preact@latest/dist/preact.js"></script>
+  {{elseif (type === 'hyperapp')}}
+  <script src="//unpkg.com/hyperapp@latest/dist/hyperapp.js"></script>
   {{/if}}
 
   <script src="./client.{{type}}.bundle.js"></script>
