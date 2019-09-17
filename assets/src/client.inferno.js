@@ -1,6 +1,6 @@
 
-import {render} from 'inferno';
+import { hydrate } from 'inferno-hydrate';
 
 import App from './app/index.inferno';
 
-render(<App {...window.GLOBAL} />, document.getElementById('container'));
+hydrate(<App {...window.GLOBAL} />, document.getElementById('container'));
