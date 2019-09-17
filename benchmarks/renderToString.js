@@ -5,7 +5,6 @@
  */
 
 const Benchmark = require('benchmark');
-
 const xtpl = require('xtpl');
 const Rax = require('rax');
 const raxRenderToString = require('rax-server-renderer').renderToString;
@@ -17,7 +16,6 @@ const Preact = require('preact');
 const preactRenderToString = require('preact-render-to-string');
 const InfernoServer = require('inferno-server');
 const infernoCreateElement = require('inferno-create-element');
-// const {render} = require("rapscallion");
 
 const ReactApp = require('../assets/build/server.react.bundle').default;
 const RaxApp = require('../assets/build/server.rax.bundle').default;
@@ -44,17 +42,11 @@ suite
     raxRenderToString(Rax.createElement(RaxApp, data));
   })
   .add('Inferno#renderToString', function() {
-    InfernoServer.renderToString(infernoCreateElement(InfernoApp, data));
+    InfernoServer.renderToString(infernoCreateElement.createElement(InfernoApp, data));
   })
   .add('Preact#renderToString', function() {
     preactRenderToString(Preact.h(PreactApp, data));
   })
-  // .add('Rapscallion#render', function(deferred) {
-  //   render(React.createElement(ReactApp, data)).toPromise()
-  //   .then(htmlString => {
-  //     deferred.resolve();
-  //   });;
-  // }, {defer: true})
   .add('Vue#renderToString', function(deferred) {
     const vueVm = new Vue({
       render(h) {
@@ -81,8 +73,9 @@ suite
       deferred.resolve();
     });
   }, {defer: true})
-  // add listeners
   .on('cycle', function(event) {
+    // const t = event.target.stats.mean;
+    // console.log('mean:' + (t*1000).toFixed(3) + 'ms');
     console.log(String(event.target));
   })
   .on('complete', function() {

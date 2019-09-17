@@ -1,6 +1,6 @@
 
-import Inferno from 'inferno';
+import {render} from 'inferno';
 
 import App from './app/index.inferno';
 
-Inferno.render(<App {...window.GLOBAL} />, document.getElementById('container'));
+render(<App {...window.GLOBAL} />, document.getElementById('container'));

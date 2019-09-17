@@ -3,9 +3,9 @@ var fs = require('fs');
 var webpack = require('webpack');
 
 module.exports = {
-
+  mode: 'production',
   entry: {
-    'client.marko': './assets/src/app/index.marko',
+    'client.marko': './assets/src/client.marko.js',
     'client.react': './assets/src/client.react.js',
     'client.rax': './assets/src/client.rax.js',
     'client.preact': './assets/src/client.preact.js',
@@ -13,36 +13,86 @@ module.exports = {
     'client.inferno': './assets/src/client.inferno.js'
   },
   output: {
-    filename: './assets/build/[name].bundle.js'
+    path: path.join(process.cwd(), 'assets/build'),
+    filename: '[name].bundle.js',
   },
   module: {
-    loaders:[
-      // react & rax & styles.js
+    rules:[
+      // react & rax
       {
-        test: /(rax|p?react|.)\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          'presets': ['es2015', 'react', 'stage-0']
+        test: /(rax|react|.)\.jsx?$/,
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            [require.resolve('@babel/preset-env'), {
+              targets: {
+                browsers: ['last 2 versions', 'IE >= 9']
+              },
+              modules: false,
+              loose: true
+            }],
+            [require.resolve('@babel/preset-react')],
+          ],
+          plugins: [
+            [require.resolve('@babel/plugin-transform-runtime')],
+            [require.resolve('@babel/plugin-transform-react-jsx')],
+            [require.resolve('@babel/plugin-proposal-decorators'), {legacy: true}],
+            [require.resolve('@babel/plugin-proposal-class-properties'), {loose: true}]
+          ]
+        }
+      },
+      {
+        test: /\.preact\.js?$/,
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            [require.resolve('@babel/preset-env'), {
+              targets: {
+                browsers: ['last 2 versions', 'IE >= 9']
+              },
+              modules: false,
+              loose: true
+            }],
+            [require.resolve('@babel/preset-react')],
+          ],
+          plugins: [
+            [require.resolve('@babel/plugin-transform-runtime')],
+            [require.resolve('@babel/plugin-transform-react-jsx'), {pragma: 'h'}],
+            [require.resolve('@babel/plugin-proposal-decorators'), {legacy: true}],
+            [require.resolve('@babel/plugin-proposal-class-properties'), {loose: true}],
+          ]
         }
       },
       {
         test: /\.inferno\.js?$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'stage-0'],
-          plugins: ['babel-plugin-syntax-jsx', 'inferno']
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            [require.resolve('@babel/preset-env'), {
+              modules: false,
+              loose: true
+            }],
+          ],
+          plugins: [
+            [require.resolve("babel-plugin-inferno"), {imports: true}],
+            [require.resolve('@babel/plugin-transform-runtime')],
+            [require.resolve('@babel/plugin-proposal-decorators'), {legacy: true}],
+            [require.resolve('@babel/plugin-proposal-class-properties'), {loose: true}],
+          ]
         }
       },
       {
         test: /\.vue\.js?$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          'presets': ['es2015', 'stage-0'],
-          'plugins': [
-            'transform-vue-jsx'
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            [require.resolve('@babel/preset-env'), {
+              modules: false,
+              loose: true
+            }],
+          ],
+          plugins: [
+            require.resolve('babel-plugin-transform-vue-jsx')
           ]
         }
       },

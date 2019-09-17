@@ -13,11 +13,12 @@ module.exports = {
             bannerData: require('../mock/banner')
         };
 
+        const element = React.createElement(ReactApp, pageConfig);
+        const content = ReactDOMServer.renderToString(element);
+
         yield this.render('page', {
             type: 'react',
-            content: ReactDOMServer.renderToString(
-                        React.createElement(ReactApp, pageConfig)
-                    ),
+            content,
             global: JSON.stringify(pageConfig)
         });
 
