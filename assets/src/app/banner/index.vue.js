@@ -1,6 +1,3 @@
-
-import styles from './styles';
-
 export default {
 
   props: ['data'],
@@ -8,14 +5,14 @@ export default {
   render(h) {
 
     return (
-      <div style={styles.container}>
+      <div class="container">
         <h2>Vue Banner: </h2>
-        <div style={styles.list}>
+        <div class="list">
         {
           this.data.map((item, idx) => {
             return (
-              <div style={styles.item} onClick={this.onBannerClick.bind(this, item)}>
-                <img src={item.img} style={styles.itemImg} />
+              <div class="item" onClick={this.onBannerClick.bind(this, item)}>
+                <img src={item.img} class="itemImg" />
               </div>
             );
           })

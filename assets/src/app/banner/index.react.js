@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import styles from './styles';
 
 export default class Banner extends React.Component {
 
@@ -17,14 +16,14 @@ export default class Banner extends React.Component {
     const {data} = this.state;
 
     return (
-      <div style={styles.container}>
+      <div className="container">
         <h2>React Banner: </h2>
-        <div style={styles.list}>
+        <div className="list">
         {
           data.map((item, idx) => {
             return (
-              <div style={styles.item} onClick={this.onBannerClick.bind(this, item)}>
-                <img src={item.img} style={styles.itemImg} />
+              <div className="item" onClick={this.onBannerClick.bind(this, item)} key={idx}>
+                <img src={item.img} className="itemImg" />
               </div>
             );
           })

@@ -2,7 +2,6 @@
 /** @jsx h */
 
 import { h, render, Component } from 'preact';
-import styles from './styles';
 
 export default class List extends Component {
 
@@ -13,16 +12,16 @@ export default class List extends Component {
   render() {
     const { data } = this.state;
     return (
-      <div style={styles.container}>
+      <div className="container">
         <h2>PreactList</h2>
-        <div style={styles.list}>
+        <div className="list">
         {
           data.map((item, idx) => {
             return (
-              <a key={idx} style={styles.item} href={item.url}>
-                <img src={item.img} style={styles.itemImg} />
-                <p style={styles.itemTitle}>{item.title}</p>
-                <p style={styles.itemPrice}>
+              <a key={idx} className="item" href={item.url}>
+                <img src={item.img} className="itemImg" />
+                <p className="itemTitle">{item.title}</p>
+                <p className="itemPrice">
                   <span>price: {item.price}</span>
                 </p>
               </a>

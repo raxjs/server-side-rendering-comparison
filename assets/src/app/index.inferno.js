@@ -1,6 +1,4 @@
-
-import Inferno from 'inferno';
-import Component from 'inferno-component';
+import {Component} from 'inferno';
 import List from './list/index.inferno';
 import Banner from './banner/index.inferno';
 
@@ -11,7 +9,6 @@ export default class App extends Component {
     }
 
     render() {
-
         const props = this.props || {};
 
         return (

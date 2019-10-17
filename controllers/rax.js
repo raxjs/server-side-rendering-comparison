@@ -12,9 +12,12 @@ module.exports = {
             bannerData: require('../mock/banner')
         };
 
+        const element = Rax.createElement(RaxApp, pageConfig);
+        const content = raxRenderToString(element);
+
         yield this.render('page', {
             type: 'rax',
-            content: raxRenderToString(Rax.createElement(RaxApp, pageConfig)),
+            content,
             global: JSON.stringify(pageConfig)
         });
 

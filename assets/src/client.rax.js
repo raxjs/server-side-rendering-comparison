@@ -3,7 +3,8 @@
 'use strict';
 
 import { createElement, Component, render, hydrate } from 'rax';
+import * as driverDom from 'driver-dom';
 
 import App from './app/index.rax';
 
-hydrate(<App {...window.GLOBAL} />, document.getElementById('container'));
+render(<App {...window.GLOBAL} />, document.getElementById('container'), { driver: driverDom, hydrate: true});

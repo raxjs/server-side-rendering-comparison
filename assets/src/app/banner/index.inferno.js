@@ -1,8 +1,4 @@
-'use strict';
-
-import Inferno from 'inferno';
-import Component from 'inferno-component';
-import styles from './styles';
+import {Component} from 'inferno';
 
 export default class Banner extends Component {
 
@@ -19,14 +15,14 @@ export default class Banner extends Component {
         const {data} = this.state;
 
         return (
-            <div style={styles.container}>
+            <div className="container">
                 <h2>Inferno Banner: </h2>
-                <div style={styles.list}>
+                <div className="list">
                     {
                         data.map((item, idx) => {
                             return (
-                                <div style={styles.item} onClick={this.onBannerClick.bind(this, item)}>
-                                    <img src={item.img} style={styles.itemImg} />
+                                <div className="item" onClick={this.onBannerClick.bind(this, item)}>
+                                    <img src={item.img} className="itemImg" />
                                 </div>
                             );
                         })

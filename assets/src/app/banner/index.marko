@@ -1,5 +1,3 @@
-<import { default as styles } from './styles'/>
-
 class {
   onCreate() {
     this.state = {
@@ -11,11 +9,11 @@ class {
   }
 }
 
-<div style=styles.container>
+<div class="container">
   <h2>${state.title}</h2>
-  <div style=styles.list>
-    <div for(idx, item in data.items) style=styles.item on-click('onBannerClick', item.title)>
-      <img src=item.img style=styles.itemImg />
+  <div class="list">
+    <div for(idx, item in data.items) class="item" on-click('onBannerClick', item.title)>
+      <img src=item.img class="itemImg" />
     </div>
   </div>
 </div>

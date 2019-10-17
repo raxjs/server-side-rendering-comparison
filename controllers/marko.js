@@ -12,7 +12,7 @@ module.exports = {
             bannerData: require('../mock/banner')
         };
 
-        this.body = pageTemplate.renderToString({ pageConfig, app });
+        this.body = pageTemplate.renderToString({ pageConfig, app, globalData: JSON.stringify(pageConfig) });
     }
 
 }

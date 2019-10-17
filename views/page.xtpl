@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>{{type}} Page</title>
 
+  <link href="/index.css" rel="stylesheet" />
+  
   <script>
     window.GLOBAL = JSON.parse('{{{global}}}');
   </script>
