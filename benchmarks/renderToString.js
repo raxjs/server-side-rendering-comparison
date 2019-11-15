@@ -3,7 +3,7 @@
 /**
  * compare renderToString
  */
-
+const os = require('os');
 const Benchmark = require('benchmark');
 const xtpl = require('xtpl');
 const Rax = require('rax');
@@ -16,6 +16,14 @@ const Preact = require('preact');
 const preactRenderToString = require('preact-render-to-string');
 const InfernoServer = require('inferno-server');
 const infernoCreateElement = require('inferno-create-element');
+
+const reactPkg = require('react/package.json');
+const raxPkg = require('rax/package.json');
+const infernoPkg = require('inferno/package.json');
+const preactPkg = require('preact/package.json');
+const vuePkg = require('vue/package.json');
+const markoPkg = require('marko/package.json');
+const xtplPkg = require('xtpl/package.json');
 
 const ReactApp = require('../assets/build/server.react.bundle').default;
 const RaxApp = require('../assets/build/server.rax.bundle').default;
@@ -35,19 +43,19 @@ const data = {
 const suite = new Benchmark.Suite;
 
 suite
-  .add('React#renderToString', function() {
+  .add(`React(${reactPkg.version})#renderToString`, function() {
     ReactDOMServer.renderToString(React.createElement(ReactApp, data));
   })
-  .add('Rax#renderToString', function() {
+  .add(`Rax(${raxPkg.version})#renderToString`, function() {
     raxRenderToString(Rax.createElement(RaxApp, data));
   })
-  .add('Inferno#renderToString', function() {
+  .add(`Inferno(${infernoPkg.version})#renderToString`, function() {
     InfernoServer.renderToString(infernoCreateElement.createElement(InfernoApp, data));
   })
-  .add('Preact#renderToString', function() {
+  .add(`Preact(${preactPkg.version})#renderToString`, function() {
     preactRenderToString(Preact.h(PreactApp, data));
   })
-  .add('Vue#renderToString', function(deferred) {
+  .add(`Vue(${vuePkg.version})#renderToString`, function(deferred) {
     const vueVm = new Vue({
       render(h) {
         return h(VueApp, {
@@ -65,10 +73,10 @@ suite
       deferred.resolve();
     });
   }, {defer: true})
-  .add('Marko#renderToString', function() {
+  .add(`Marko(${markoPkg.version})#renderToString`, function() {
     MarkoApp.renderToString(data);
   })
-  .add('Xtpl#renderFile', function(deferred){
+  .add(`Xtpl(${xtplPkg.version})#renderFile`, function(deferred){
     xtpl.renderFile(xtplAppPath, data, function(error, content){
       deferred.resolve();
     });
@@ -79,7 +87,22 @@ suite
     console.log(String(event.target));
   })
   .on('complete', function() {
-    console.log('Fastest is ' + this.filter('fastest').map('name'));
+    console.log();
+    console.log('The benchmark was run on:');
+    const osInformation = getOSInformation();
+    Object.keys(osInformation).map(info => {
+      console.log('   ' + info.toUpperCase() + ': ' + osInformation[info]);
+    });
   })
   // run async
   .run({ 'async': true });
+
+
+function getOSInformation() {
+  return {
+    platform: os.platform() + ' ' + os.release(),
+    cpu: os.cpus()[0].model,
+    'system memory': os.totalmem() / ( 1024 * 1024 * 1024 ) + 'GB',
+    'node version': process.version
+  };
+}
