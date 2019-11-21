@@ -4,8 +4,10 @@
  * compare renderToString
  */
 const os = require('os');
+const fs = require('fs');
+const path = require('path');
 const Benchmark = require('benchmark');
-const xtpl = require('xtpl');
+const xtemplate = require('xtemplate');
 const Rax = require('rax');
 const raxRenderToString = require('rax-server-renderer').renderToString;
 const React = require('react');
@@ -23,7 +25,7 @@ const infernoPkg = require('inferno/package.json');
 const preactPkg = require('preact/package.json');
 const vuePkg = require('vue/package.json');
 const markoPkg = require('marko/package.json');
-const xtplPkg = require('xtpl/package.json');
+const xtemplatePkg = require('xtemplate/package.json');
 
 const ReactApp = require('../assets/build/server.react.bundle').default;
 const RaxApp = require('../assets/build/server.rax.bundle').default;
@@ -32,8 +34,9 @@ const PreactApp = require('../assets/build/server.preact.bundle').default;
 const MarkoApp = require('../assets/build/server.marko.bundle');
 const InfernoApp = require('../assets/build/server.inferno.bundle').default;
 
-const path = require('path');
-const xtplAppPath = path.join(__dirname, '../assets/src/app/index.xtpl');
+const xtplPath = path.join(__dirname, '../assets/src/app/index.xtpl');
+const xtplString = fs.readFileSync(xtplPath, 'utf8');
+const xtpl = xtemplate.compile(xtplString);
 
 const data = {
   listData: require('../mock/list'),
@@ -66,25 +69,22 @@ suite
         });
       }
     });
-    vueRenderToString(vueVm, (err, html) => {
-      if(err) {
-        return deferred.reject(err);
-      }
+    // Do not call deferred.resolve in the callback of renderToString, it will bring more delay time
+    vueRenderToString(vueVm).then(html => {
       deferred.resolve();
     });
   }, {defer: true})
   .add(`Marko(${markoPkg.version})#renderToString`, function() {
     MarkoApp.renderToString(data);
   })
-  .add(`Xtpl(${xtplPkg.version})#renderFile`, function(deferred){
-    xtpl.renderFile(xtplAppPath, data, function(error, content){
-      deferred.resolve();
-    });
-  }, {defer: true})
+  .add(`xtemplate(${xtemplatePkg.version})#render`, function(){
+    const xtplApp = new xtemplate(xtpl);
+    xtplApp.render(data);
+  })
   .on('cycle', function(event) {
-    // const t = event.target.stats.mean;
-    // console.log('mean:' + (t*1000).toFixed(3) + 'ms');
     console.log(String(event.target));
+    // const t = event.target.stats.mean;
+    // console.log('mean:' + (t*1000000).toFixed(6) + 'μs');
   })
   .on('complete', function() {
     console.log();
@@ -96,7 +96,6 @@ suite
   })
   // run async
   .run({ 'async': true });
-
 
 function getOSInformation() {
   return {
