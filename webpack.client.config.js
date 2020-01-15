@@ -5,6 +5,7 @@ var webpack = require('webpack');
 module.exports = {
   mode: 'production',
   entry: {
+    'client.hyperapp': './assets/src/client.hyperapp.js',
     'client.marko': './assets/src/client.marko.js',
     'client.react': './assets/src/client.react.js',
     'client.rax': './assets/src/client.rax.js',
@@ -18,6 +19,24 @@ module.exports = {
   },
   module: {
     rules:[
+      {
+        test: /\.hyperapp\.js?$/,
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            [require.resolve('@babel/preset-env'), {
+              targets: {
+                browsers: ['last 2 versions', 'IE >= 9']
+              },
+              modules: false,
+              loose: true
+            }],
+          ],
+          plugins: [
+            [require.resolve('@babel/plugin-transform-react-jsx'), {pragma: 'h'}],
+          ]
+        }
+      },
       // react & rax
       {
         test: /(rax|react|.)\.jsx?$/,
@@ -104,6 +123,7 @@ module.exports = {
     ]
   },
   externals: {
+    'hyperapp': 'window.hyperapp',
     'react': 'window.React',
     'react-dom': 'window.ReactDOM',
     'rax': 'window.Rax',

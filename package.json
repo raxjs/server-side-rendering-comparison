@@ -25,6 +25,8 @@
   },
   "dependencies": {
     "driver-dom": "^2.0.0",
+    "hyperapp": "^2.0.3",
+    "hyperapp-render": "^3.1.0",
     "inferno": "^7.2.1",
     "inferno-create-element": "^7.3.0",
     "inferno-hydrate": "^7.3.1",

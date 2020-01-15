@@ -6,6 +6,7 @@ module.exports = {
   target: 'node',
   mode: 'production', // 'development',
   entry: {
+    'server.hyperapp': './assets/src/server.hyperapp.js',
     'server.marko': './assets/src/app/index.marko',
     'server.react': './assets/src/server.react.js',
     'server.rax': './assets/src/server.rax.js',
@@ -20,6 +21,22 @@ module.exports = {
   },
   module: {
     rules:[
+      {
+        test: /\.hyperapp\.js?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            [require.resolve('@babel/preset-env'), {
+              modules: false,
+              loose: true
+            }],
+          ],
+          plugins: [
+            [require.resolve('@babel/plugin-transform-react-jsx'), {pragma: 'h'}],
+          ]
+        }
+      },
       {
         test: /\.react.*\.js/,
         exclude: /node_modules/,
