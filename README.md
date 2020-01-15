@@ -35,4 +35,5 @@ The benchmark was run on:
    NODE VERSION: v10.18.1
 ```
 
-- Result history: https://github.com/raxjs/server-side-rendering-comparison/actions
+- Result run by [Github Actions](https://github.com/raxjs/server-side-rendering-comparison/actions)
+
