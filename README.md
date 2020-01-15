@@ -2,8 +2,8 @@
 
 ## Benchmark info
 
-- with `NODE_ENV=production`. `renderToString` both require from `lib` not `dist`
-- with about 600 dom nodes
+- With `NODE_ENV=production`. `renderToString` both require from `lib` not `dist`.
+- With about 600 dom nodes.
 
 ## Run
 
@@ -32,3 +32,5 @@ The benchmark was run on:
    SYSTEM MEMORY: 6.782737731933594GB
    NODE VERSION: v10.18.1
 ```
+
+- Result history: https://github.com/raxjs/server-side-rendering-comparison/actions
