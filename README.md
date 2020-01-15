@@ -18,6 +18,8 @@ npm run benchmark
 
 ## Result
 
+> https://github.com/raxjs/server-side-rendering-comparison/commit/04fdfec8aa8626312ad3e2c0c6a57c6f735ad6de/checks?check_suite_id=401266841
+
 ```bash
 React(16.12.0)#renderToString x 1,178 ops/sec ±1.23% (85 runs sampled)
 Rax(1.1.1)#renderToString x 6,047 ops/sec ±1.73% (82 runs sampled)
