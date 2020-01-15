@@ -2,8 +2,8 @@
 
 ## Benchmark info
 
-- with `NODE_ENV=production`. `renderToString` both require from `lib` not `dist`
-- with about 600 dom nodes
+- With `NODE_ENV=production`. `renderToString` both require from `lib` not `dist`.
+- With about 600 dom nodes.
 
 ## Run
 
@@ -13,20 +13,27 @@ npm install
 npm run webpack
 
 # run renderToString benchmark
-NODE_ENV=production node benchmarks/renderToString.js
+npm run benchmark
 ```
 
 ## Result
 
+> https://github.com/raxjs/server-side-rendering-comparison/commit/04fdfec8aa8626312ad3e2c0c6a57c6f735ad6de/checks?check_suite_id=401266841
+
 ```bash
------------compare renderToString----------
-React(16.12.0)#renderToString x 1,664 ops/sec ±1.40% (84 runs sampled)
-Rax(1.0.13)#renderToString x 13,411 ops/sec ±1.05% (85 runs sampled)
-Preact(10.0.5)#renderToString x 1,237 ops/sec ±2.18% (84 runs sampled)
+React(16.12.0)#renderToString x 1,178 ops/sec ±1.23% (85 runs sampled)
+Rax(1.1.1)#renderToString x 6,047 ops/sec ±1.73% (82 runs sampled)
+Inferno(7.3.3)#renderToString x 3,335 ops/sec ±1.77% (82 runs sampled)
+Preact(10.2.1)#renderToString x 1,005 ops/sec ±1.10% (86 runs sampled)
+Marko(4.18.33)#renderToString x 10,291 ops/sec ±1.64% (86 runs sampled)
+xtemplate(4.7.2)#render x 20,600 ops/sec ±2.89% (84 runs sampled)
 
 The benchmark was run on:
-   PLATFORM: darwin 17.5.0
-   CPU: Intel(R) Core(TM) i7-7660U CPU @ 2.50GHz
-   SYSTEM MEMORY: 16GB
-   NODE VERSION: v10.11.0
+   PLATFORM: linux 5.0.0-1027-azure
+   CPU: Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz
+   SYSTEM MEMORY: 6.782737731933594GB
+   NODE VERSION: v10.18.1
 ```
+
+- Result run by [Github Actions](https://github.com/raxjs/server-side-rendering-comparison/actions)
+
