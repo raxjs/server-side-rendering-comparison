@@ -12,8 +12,10 @@ class {
 <div class="container">
   <h2>${state.title}</h2>
   <div class="list">
-    <div for(idx, item in data.items) class="item" on-click('onBannerClick', item.title)>
-      <img src=item.img class="itemImg" />
-    </div>
+    <for|idx, item| in=data.items>
+      <div class="item" on-click('onBannerClick', item.title)>
+        <img src=item.img class="itemImg" />
+      </div>
+    </for>
   </div>
 </div>

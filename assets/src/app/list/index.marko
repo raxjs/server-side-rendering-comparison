@@ -1,12 +1,14 @@
 <div class="container">
   <h2>MarkoList</h2>
   <div class="list">
-    <a for(idx, item in data.items) class="item" href=item.url>
-      <img src=item.img class="itemImg" />
-      <p class="itemTitle">${item.title}</p>
-      <p class="itemPrice">
-        <span>price: ${item.price}</span>
-      </p>
-    </a>
+    <for|idx, item| in=data.items>
+      <a class="item" href=item.url>
+        <img src=item.img class="itemImg" />
+        <p class="itemTitle">${item.title}</p>
+        <p class="itemPrice">
+          <span>price: ${item.price}</span>
+        </p>
+      </a>
+    </for>
   </div>
 </div>
