@@ -7,6 +7,7 @@ const koa = require('koa');
 const serve = require('koa-static');
 const router = require('koa-router')();
 
+const hyperappController = require('./controllers/hyperapp');
 const reactController = require('./controllers/react');
 const raxController = require('./controllers/rax');
 const vueController = require('./controllers/vue');
@@ -19,6 +20,7 @@ const app = require('xtpl/lib/koa')(require('koa')(), {
   views:'./views'
 });
 
+router.get('/hyperapp', hyperappController.home);
 router.get('/react', reactController.home);
 router.get('/rax', raxController.home);
 router.get('/vue', vueController.home);

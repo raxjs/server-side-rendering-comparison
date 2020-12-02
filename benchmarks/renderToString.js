@@ -18,7 +18,9 @@ const Preact = require('preact');
 const preactRenderToString = require('preact-render-to-string');
 const InfernoServer = require('inferno-server');
 const infernoCreateElement = require('inferno-create-element');
+const Hyperapp = require('hyperapp-render');
 
+const hyperappPkg = require('hyperapp/package.json');
 const reactPkg = require('react/package.json');
 const raxPkg = require('rax/package.json');
 const infernoPkg = require('inferno/package.json');
@@ -27,6 +29,7 @@ const vuePkg = require('vue/package.json');
 const markoPkg = require('marko/package.json');
 const xtemplatePkg = require('xtemplate/package.json');
 
+const HyperApp = require('../assets/build/server.hyperapp.bundle');
 const ReactApp = require('../assets/build/server.react.bundle').default;
 const RaxApp = require('../assets/build/server.rax.bundle').default;
 const VueApp = require('../assets/build/server.vue.bundle').default;
@@ -46,6 +49,9 @@ const data = {
 const suite = new Benchmark.Suite;
 
 suite
+  .add(`Hyperapp(${hyperappPkg.version})#renderToString`, function() {
+    Hyperapp.renderToString(HyperApp.view(data));
+  })
   .add(`React(${reactPkg.version})#renderToString`, function() {
     ReactDOMServer.renderToString(React.createElement(ReactApp, data));
   })
